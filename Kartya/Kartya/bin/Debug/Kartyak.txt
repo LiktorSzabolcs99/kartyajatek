@@ -1,0 +1,13 @@
+id;erteke;kategoria;keppeseg;
+1;5;Kozelharcos;Nincs;
+2;10;Kozelharcos;Nincs;
+3;7;Tavolsagi;Nincs;
+4;8;Tavolsagi;Nincs;
+5;9;Tavolsagi;Nincs;
+6;10;Ostrom;Nincs;
+7;20;Ostrom;Nincs;
+8;12;Kozelharcos;Nincs;
+9;7;Tavolsagi;Nincs;
+10;7;Tavolsagi;Nincs;
+11;5;Kozelharcos;Nincs;
+12;10;Ostrom;Nincs;

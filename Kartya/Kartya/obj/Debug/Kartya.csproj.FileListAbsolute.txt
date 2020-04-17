@@ -1,0 +1,20 @@
+D:\Users\liktorsz.14inf\Downloads\Zarodolgozat_Test_Kartya\Kartya\Kartya\bin\Debug\Kartya.exe.config
+D:\Users\liktorsz.14inf\Downloads\Zarodolgozat_Test_Kartya\Kartya\Kartya\bin\Debug\Kartya.exe
+D:\Users\liktorsz.14inf\Downloads\Zarodolgozat_Test_Kartya\Kartya\Kartya\bin\Debug\Kartya.pdb
+D:\Users\liktorsz.14inf\Downloads\Zarodolgozat_Test_Kartya\Kartya\Kartya\obj\Debug\Kartya.csprojAssemblyReference.cache
+D:\Users\liktorsz.14inf\Downloads\Zarodolgozat_Test_Kartya\Kartya\Kartya\obj\Debug\Kartya.Form1.resources
+D:\Users\liktorsz.14inf\Downloads\Zarodolgozat_Test_Kartya\Kartya\Kartya\obj\Debug\Kartya.Properties.Resources.resources
+D:\Users\liktorsz.14inf\Downloads\Zarodolgozat_Test_Kartya\Kartya\Kartya\obj\Debug\Kartya.csproj.GenerateResource.cache
+D:\Users\liktorsz.14inf\Downloads\Zarodolgozat_Test_Kartya\Kartya\Kartya\obj\Debug\Kartya.csproj.CoreCompileInputs.cache
+D:\Users\liktorsz.14inf\Downloads\Zarodolgozat_Test_Kartya\Kartya\Kartya\obj\Debug\Kartya.exe
+D:\Users\liktorsz.14inf\Downloads\Zarodolgozat_Test_Kartya\Kartya\Kartya\obj\Debug\Kartya.pdb
+C:\Users\User\Desktop\Zárodolgozat Program\Kartya\Kartya\bin\Debug\Kartya.exe.config
+C:\Users\User\Desktop\Zárodolgozat Program\Kartya\Kartya\bin\Debug\Kartya.exe
+C:\Users\User\Desktop\Zárodolgozat Program\Kartya\Kartya\bin\Debug\Kartya.pdb
+C:\Users\User\Desktop\Zárodolgozat Program\Kartya\Kartya\obj\Debug\Kartya.csprojAssemblyReference.cache
+C:\Users\User\Desktop\Zárodolgozat Program\Kartya\Kartya\obj\Debug\Kartya.Form1.resources
+C:\Users\User\Desktop\Zárodolgozat Program\Kartya\Kartya\obj\Debug\Kartya.Properties.Resources.resources
+C:\Users\User\Desktop\Zárodolgozat Program\Kartya\Kartya\obj\Debug\Kartya.csproj.GenerateResource.cache
+C:\Users\User\Desktop\Zárodolgozat Program\Kartya\Kartya\obj\Debug\Kartya.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Zárodolgozat Program\Kartya\Kartya\obj\Debug\Kartya.exe
+C:\Users\User\Desktop\Zárodolgozat Program\Kartya\Kartya\obj\Debug\Kartya.pdb
