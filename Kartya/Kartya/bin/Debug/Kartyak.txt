@@ -1,6 +1,6 @@
 id;erteke;kategoria;keppeseg;
 1;5;Kozelharcos;Nincs;
-2;10;Kozelharcos;Nincs;
+2;15;Kozelharcos;LegendasKiseret;
 3;7;Tavolsagi;Nincs;
 4;8;Tavolsagi;Nincs;
 5;9;Tavolsagi;Nincs;

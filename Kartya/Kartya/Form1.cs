@@ -21,11 +21,9 @@ namespace Kartya
         public string keppeseg;
         public bool zarolva;
         public bool aktiv;
-        public int elozopozicioX;
-        public int elozopozicioY;
-        public int aktualispozX;
-        public int aktualispozY;
-        public string Bitmap;
+        public Point elozopozicio;
+        public Point aktualispoz;
+        public Bitmap kep;
     } 
     #endregion
 
@@ -35,10 +33,13 @@ namespace Kartya
         Kartyatulj[] lap = new Kartyatulj[30];
         public string kategoria;
         public int osszertek = 0;
+        public List<int> Lrandomszam = new List<int>();
+        int[] paklitartalma = new int[25] {1,2,3,4,5,6,7,8,9,10,11,12,13,
+                                               14,15,16,17,18,19,20,21,22,23,24,25 };
 
 
         private Point elozopozicio = new Point(-1, -1);
-
+        int csakegyszer = 0;
         int Index = 0;
         bool Egerfelengedve = false;
         bool KozKartyazarolas = false;
@@ -52,37 +53,37 @@ namespace Kartya
         private Bitmap Alapkartya;
 
         private Bitmap KozelharcosKartya;
-        private Bitmap KozelharcosMezo;
+        private Bitmap KozelharcosMezo = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\KozMezo.png");
 
         private Bitmap TavolsagiKartya;
-        private Bitmap TavolsagiMezo;
+        private Bitmap TavolsagiMezo = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\TavMezo.png");
 
         private Bitmap OstromKartya;
-        private Bitmap OstromMezo1;
-        private Bitmap OstromMezo2;
+        Bitmap OstromMezo1 = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\OstMezo.png");
+        Bitmap OstromMezo2 = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\OstMezo.png");
 
         private Bitmap EllKozelharcosKartya;
-        private Bitmap EllKozelharcosMezo;
+        private Bitmap EllKozelharcosMezo = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\KozMezo.png");
 
         private Bitmap EllTavolsagiKartya;
-        private Bitmap EllTavolsagiMezo;
+        private Bitmap EllTavolsagiMezo = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\TavMezo.png");
 
         private Bitmap EllOstromKartya;
-        private Bitmap EllOstromMezo1;
-        private Bitmap EllOstromMezo2;
+        Bitmap EllOstromMezo1 = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\OstMezo.png");
+        Bitmap EllOstromMezo2 = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\OstMezo.png");
 
-        private Bitmap Pakli;
-        private Bitmap EllPakli;
+        Bitmap Pakli = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\PT.png");
+        Bitmap EllPakli = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\PT.png");
 
-        private Bitmap Temeto;
-        private Bitmap EllTemeto;
+        Bitmap Temeto = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\PT.png");
+        Bitmap EllTemeto = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\PT.png");
 
         private Bitmap Kartyakkezben;
         private Bitmap EllKartyakkezben;
 
-        private Bitmap Esemenykartya;
+        Bitmap Esemenykartya = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\IJMezo.png");
 
-        private Bitmap Boostkartya;
+        private Bitmap Boostkartya = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\TavBonusz.png");
         #endregion
 
 
@@ -90,8 +91,98 @@ namespace Kartya
         #region Point-ok bitmap poziciók
         //A bitmapok helye a console-on
 
+        Point Kijeloltlaphelye;
+        Point Kijeloltmezohelye;
+        Bitmap Kijeloltmezo;
+        bool Kijeloltkartyazarolasa;
+
+        //Játékos Paklija
+        //"Királyság" lapok
+
+
+        private Bitmap lap1 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Kiraly.png");
+        private Point lap1helye = new Point(212, 603);
+
+
+        private Bitmap lap2 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Herceg03.png");
+        private Point lap2helye = new Point(212, 603);
+        bool lap2zarolasa = false;
+
+        private Bitmap lap3 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Testor1.png");
+        private Point lap3helye = new Point(212, 603);
+
+        private Bitmap lap4 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Testor2.png");
+        private Point lap4helye = new Point(212, 603);
+
+        private Bitmap lap5 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\ijasz1.png");
+        private Point lap5helye = new Point(212, 603);
+
+        private Bitmap lap6 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\ijasz2.png");
+        private Point lap6helye = new Point(212, 603);
+
+        private Bitmap lap7 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\ijasz3.png");
+        private Point lap7helye = new Point(212, 603);
+
+        private Bitmap lap8 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Foldmuves1.png");
+        private Point lap8helye = new Point(212, 603);
+
+        private Bitmap lap9 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Foldmuves2.png");
+        private Point lap9helye = new Point(212, 603);
+
+        private Bitmap lap10 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Sorkatona1.png");
+        private Point lap10helye = new Point(212, 603);
+
+        private Bitmap lap11 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Sorkatona2.png");
+        private Point lap11helye = new Point(212, 603);
+
+        private Bitmap lap12 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Zsoldos.png");
+        private Point lap12helye = new Point(212, 603);
+
+        private Bitmap lap13 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Szamszerijasz1.png");
+        private Point lap13helye = new Point(212, 603);
+
+        private Bitmap lap14 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\szamszerijasz2.png");
+        private Point lap14helye = new Point(212, 603);
+
+        private Bitmap lap15 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Magus.png");
+        private Point lap15helye = new Point(212, 603);
+
+        private Bitmap lap16 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Hajitogep1.png");
+        private Point lap16helye = new Point(212, 603);
+
+        private Bitmap lap17 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Lovag.png");
+        private Point lap17helye = new Point(212, 603);
+
+        private Bitmap lap18 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Katapult1.png");
+        private Point lap18helye = new Point(212, 603);
+
+        private Bitmap lap19 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Katapult2.png");
+        private Point lap19helye = new Point(212, 603);
+
+        private Bitmap lap20 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Ballista1.png");
+        private Point lap20helye = new Point(212, 603);
+
+        private Bitmap lap21 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Ballista2.png");
+        private Point lap21helye = new Point(212, 603);
+
+        private Bitmap lap22 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Lord.png");
+        private Point lap22helye = new Point(212, 603);
+
+        private Bitmap lap23 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Ranger.png");
+        private Point lap23helye = new Point(212, 603);
+
+        private Bitmap lap24 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\nehezlovassag1.png");
+        private Point lap24helye = new Point(212, 603);
+
+        private Bitmap lap25 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\nehezlovassag2.png");
+        private Point lap25helye = new Point(212, 603);
+
+        /*-------------------------------------------------------------------------------------*/
+        #endregion
+
+        #region Mezők helye
         //Saját mezők
-        private Point Ideiglenespoz = new Point(0, 0);
+        private Point Ideiglenespoz = new Point(500, 500);
         private Point Ideiglenespoz2 = new Point(0, 0);
 
         private Point KezdoKartyakhelye = new Point(212, 603);
@@ -103,14 +194,14 @@ namespace Kartya
         private Point Kartyakkezbenhelye = new Point(210, 600);
 
         private Point Kozelharcosmezohelye = new Point(285, 390);
-        private Point Kozelharcoskartyahelye = new Point(212, 603);
+        //private Point Kozelharcoskartyahelye = new Point(212, 603);
 
         private Point Tavolsagimezohelye = new Point(285, 495);
-        private Point Tavolsagikartyahelye = new Point(281, 603);
+       // private Point Tavolsagikartyahelye = new Point(281, 603);
 
         private Point Ostrommezohelye1 = new Point(5, 495);
         private Point Ostrommezohelye2 = new Point(1160, 495);
-        private Point Ostromkartyahelye = new Point(350, 603);
+        //private Point Ostromkartyahelye = new Point(300, 500);
 
         private Point Paklihelye = new Point(1250, 605);
         private Point Temetohelye = new Point(1180, 605);
@@ -123,19 +214,19 @@ namespace Kartya
         private Point EllKartyakkezbenhelye = new Point(210, 5);
 
         private Point EllKozelharcosmezohelye = new Point(285, 215);
-        private Point EllKozelharcoskartyahelye = new Point(100, 100);
+       // private Point EllKozelharcoskartyahelye = new Point(100, 100);
 
         private Point EllTavolsagimezohelye = new Point(285, 110);
-        private Point EllTavolsagikartyahelye = new Point(100, 250);
+       // private Point EllTavolsagikartyahelye = new Point(100, 250);
 
         private Point EllOstrommezohelye1 = new Point(5, 110);
         private Point EllOstrommezohelye2 = new Point(1160, 110);
-        private Point EllOstromkartyahelye = new Point(100, 380);
+       // private Point EllOstromkartyahelye = new Point(100, 380);
 
         private Point EllPaklihelye = new Point(30, 5);
         private Point EllTemetohelye = new Point(100, 5);
 
-        Pen feher = new Pen(Color.White);
+        //Pen feher = new Pen(Color.White);
         Point kulzorlock = new Point(-1, -1);
 
         Point aktualiskulzorpozicio = MousePosition; 
@@ -145,6 +236,15 @@ namespace Kartya
 
         public Form1()
         {
+            
+
+            Kartyatulj[] lap = new Kartyatulj[30];
+            for (int i = 1; i < lap.Length; i++)
+            {
+                lap[i].aktualispoz = lap1helye;
+            }
+
+
             //Itt hívom meg a beolvasott adatokat a fájból
             Adatbeolvasas(ref osszertek,ref lap);
             for (int i = 0; i < lap.Length; i++)
@@ -171,37 +271,24 @@ namespace Kartya
             Alapkartya = new Bitmap(65, 95);
             Kartyakkezben = new Bitmap(945, 105);
 
-            KozelharcosMezo = new Bitmap(870, 105);
             KozelharcosKartya = new Bitmap(65, 95);
 
             TavolsagiKartya = new Bitmap(65, 95);
-            TavolsagiMezo = new Bitmap(870, 105);
+
 
             OstromKartya = new Bitmap(65, 95);
-            OstromMezo1 = new Bitmap(200, 205);
-            OstromMezo2 = new Bitmap(200, 205);
 
-            Pakli = new Bitmap(65, 95);
-            Temeto = new Bitmap(65, 95);
-
-            Esemenykartya = new Bitmap(100, 200);
-            Boostkartya = new Bitmap(70, 100);
 
             //Ellenfél
             EllKartyakkezben = new Bitmap(945, 105);
 
-            EllKozelharcosMezo = new Bitmap(870, 105);
             EllKozelharcosKartya = new Bitmap(65, 95);
 
             EllTavolsagiKartya = new Bitmap(65, 95);
-            EllTavolsagiMezo = new Bitmap(870, 105);
+
 
             EllOstromKartya = new Bitmap(65, 95);
-            EllOstromMezo1 = new Bitmap(200, 205);
-            EllOstromMezo2 = new Bitmap(200, 205);
-
-            EllPakli = new Bitmap(65, 95);
-            EllTemeto = new Bitmap(65, 95);
+ 
 
 
             #endregion
@@ -220,6 +307,7 @@ namespace Kartya
 
         #region Kártyák kinézete
         //Kártyák kinézete
+        /*
         private void kartyarajz(string kapottkategoria)
         {
 
@@ -248,91 +336,24 @@ namespace Kartya
                 }
             }
         }
+        */
         #endregion
 
         #region Mezők kinézete
         //Mezők kinézete
         private void mezorajz()
         {
-            using (var g = Graphics.FromImage(Boostkartya))
-            {
-                g.FillRectangle(Brushes.Gray, boostlap);
-            }
-            //Esemény mező
-            using (var g = Graphics.FromImage(Esemenykartya))
-            {
-                g.FillRectangle(Brushes.Silver, esemenymezo);
-            }
-
-            //Pakli + Ellenfél Pakli
-            using (var g = Graphics.FromImage(Pakli))
-            {
-                g.FillRectangle(Brushes.Purple, kartyalap);
-            }
-            using (var g = Graphics.FromImage(EllPakli))
-            {
-                g.FillRectangle(Brushes.Purple, kartyalap);
-            }
-
-            //Temetők
-            using (var g = Graphics.FromImage(Temeto))
-            {
-                g.FillRectangle(Brushes.Blue, kartyalap);
-            }
-            using (var g = Graphics.FromImage(EllTemeto))
-            {
-                g.FillRectangle(Brushes.Blue, kartyalap);
-            }
-
             using (var g = Graphics.FromImage(Kartyakkezben))
             {
                 g.FillRectangle(Brushes.White, mezo1);
             }
-
-            using (var g = Graphics.FromImage(KozelharcosMezo))
-            {
-                g.FillRectangle(Brushes.Yellow, mezo1);
-            }
-
-            using (var g = Graphics.FromImage(TavolsagiMezo))
-            {
-                g.FillRectangle(Brushes.Green, mezo1);
-            }
-
-            using (var g = Graphics.FromImage(OstromMezo1))
-            {
-                g.FillRectangle(Brushes.Red, Ostmezo);
-            }
-
-            using (var g = Graphics.FromImage(OstromMezo2))
-            {
-                g.FillRectangle(Brushes.Red, Ostmezo);
-            }
-
+            
             //Ellenfél
             using (var g = Graphics.FromImage(EllKartyakkezben))
             {
                 g.FillRectangle(Brushes.White, mezo1);
             }
-
-            using (var g = Graphics.FromImage(EllKozelharcosMezo))
-            {
-                g.FillRectangle(Brushes.Yellow, mezo1);
-            }
-
-            using (var g = Graphics.FromImage(EllTavolsagiMezo))
-            {
-                g.FillRectangle(Brushes.Green, mezo1);
-            }
-
-            using (var g = Graphics.FromImage(EllOstromMezo1))
-            {
-                g.FillRectangle(Brushes.Red, Ostmezo);
-            }
-            using (var g = Graphics.FromImage(EllOstromMezo2))
-            {
-                g.FillRectangle(Brushes.Red, Ostmezo);
-            }
+            
         } 
         #endregion
 
@@ -341,7 +362,11 @@ namespace Kartya
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
+            
             Graphics g = e.Graphics;
+
+            
+            
 
             #region Mezők kirajzolása 
             mezorajz();
@@ -351,14 +376,14 @@ namespace Kartya
             g.DrawImage(Boostkartya, EllBoostkartyahelye2);
 
             g.DrawImage(Esemenykartya, Esemenykartyahelye);
-            g.DrawImage(Kartyakkezben, Kartyakkezbenhelye);
+            // g.DrawImage(Kartyakkezben, Kartyakkezbenhelye);
             g.DrawImage(KozelharcosMezo, Kozelharcosmezohelye);
             g.DrawImage(TavolsagiMezo, Tavolsagimezohelye);
             g.DrawImage(OstromMezo1, Ostrommezohelye1);
             g.DrawImage(OstromMezo2, Ostrommezohelye2);
 
 
-            g.DrawImage(EllKartyakkezben, EllKartyakkezbenhelye);
+            // g.DrawImage(EllKartyakkezben, EllKartyakkezbenhelye);
             g.DrawImage(EllKozelharcosMezo, EllKozelharcosmezohelye);
             g.DrawImage(EllTavolsagiMezo, EllTavolsagimezohelye);
             g.DrawImage(EllOstromMezo1, EllOstrommezohelye1);
@@ -371,6 +396,105 @@ namespace Kartya
             g.DrawImage(EllTemeto, EllTemetohelye);
             #endregion
 
+            
+            if (csakegyszer == 0)
+            {
+                csakegyszer++;
+                Elsokilenckartya(paklitartalma, ref Lrandomszam);
+            }
+            int lepteto = 0;
+            foreach (var szamok in Lrandomszam)
+            {
+                //if (lepteto == 16)
+                  //  lepteto = 0;
+                switch (szamok)
+                {
+                    case 1:
+                        g.DrawImage(lap1, lap1helye.X +(lepteto * 70),lap1helye.Y);
+                        break;
+                    case 2:
+                        g.DrawImage(lap2, lap2helye.X + (lepteto * 70), lap2helye.Y);
+                        break;
+                    case 3:
+                        g.DrawImage(lap3, lap3helye.X + (lepteto * 70), lap3helye.Y);
+                        break;
+                    case 4:
+                        g.DrawImage(lap4, lap4helye.X + (lepteto * 70), lap4helye.Y);
+                        break;
+                    case 5:
+                        g.DrawImage(lap5, lap5helye.X + (lepteto * 70), lap5helye.Y);
+                        break;
+                    case 6:
+                        g.DrawImage(lap6, lap6helye.X + (lepteto * 70), lap6helye.Y);
+                        break;
+                    case 7:
+                        g.DrawImage(lap7, lap7helye.X + (lepteto * 70), lap7helye.Y);
+                        break;
+                    case 8:
+                        g.DrawImage(lap8, lap8helye.X + (lepteto * 70), lap8helye.Y);
+                        break;
+                    case 9:
+                        g.DrawImage(lap9, lap9helye.X + (lepteto * 70), lap9helye.Y);
+                        break;
+                    case 10:
+                        g.DrawImage(lap10, lap10helye.X + (lepteto * 70), lap10helye.Y);
+                        break;
+                    case 11:
+                        g.DrawImage(lap11, lap11helye.X + (lepteto * 70), lap11helye.Y);
+                        break;
+                    case 12:
+                        g.DrawImage(lap12, lap12helye.X + (lepteto * 70), lap12helye.Y);
+                        break;
+                    case 13:
+                        g.DrawImage(lap13, lap13helye.X + (lepteto * 70), lap13helye.Y);
+                        break;
+                    case 14:
+                        g.DrawImage(lap14, lap14helye.X + (lepteto * 70), lap14helye.Y);
+                        break;
+                    case 15:
+                        g.DrawImage(lap15, lap15helye.X + (lepteto * 70), lap15helye.Y);
+                        break;
+                    case 16:
+                        g.DrawImage(lap16, lap16helye.X + (lepteto * 70), lap16helye.Y);
+                        break;
+                    case 17:
+                        g.DrawImage(lap17, lap17helye.X + (lepteto * 70), lap17helye.Y);
+                        break;
+                    case 18:
+                        g.DrawImage(lap18, lap18helye.X + (lepteto * 70), lap18helye.Y);
+                        break;
+                    case 19:
+                        g.DrawImage(lap19, lap19helye.X + (lepteto * 70), lap19helye.Y);
+                        break;
+                    case 20:
+                        g.DrawImage(lap20, lap20helye.X + (lepteto * 70), lap20helye.Y);
+                        break;
+                    case 21:
+                        g.DrawImage(lap21, lap21helye.X + (lepteto * 70), lap21helye.Y);
+                        break;
+                    case 22:
+                        g.DrawImage(lap22, lap22helye.X + (lepteto * 70), lap22helye.Y);
+                        break;
+                    case 23:
+                        g.DrawImage(lap23, lap23helye.X + (lepteto * 70), lap23helye.Y);
+                        break;
+                    case 24:
+                        g.DrawImage(lap24, lap24helye.X + (lepteto * 70), lap24helye.Y);
+                        break;
+                    case 25:
+                        g.DrawImage(lap25, lap25helye.X + (lepteto * 70), lap25helye.Y);
+                        break;
+
+                    default:
+                        break;
+                }
+                lepteto++;
+            }
+            lepteto = 0;
+            
+            //g.DrawImage(lap1, lap1helye.X,lap1helye.Y);
+
+
             //Kártyák kirajzolása
             int a = 0;
             int f = 0;
@@ -381,60 +505,62 @@ namespace Kartya
             /*------------------------------------------------------------------------*/
             {
                 //Ezzen a cikluson rajzolom ki lap.length-nyi (tehát 12 lapot,mivel annyi van beleírva a txt-fájlba) kártyákat
-                for (int i = 0; i < lap.Length; i++)
+                for (int i = 1; i < lap.Length; i++)
                 {
                     f++;
                     //Ezt gondolom érti ha a kategoria = "Ostrom" amit a fájba írok és onnan is kapja a lap[i].kategoria az értéket
                     //akkor az adott "i"-dik elemű kártyának a pozicióját beállítom a KezdoKartyahelyre(A fehérmező/sáv alúl) bal oldaról kezdje
                     //felsorolni/kipakolni a lapokat
-                    kartyarajz(lap[i].kategoria);
+                    
+                    //g.DrawImage(OstromKartya, Ostromkartyahelye);
+                    //g.DrawImage(OstromKartya, Ideiglenespoz);
                     if (lap[i].kategoria == "Ostrom")
                     {
-                        lap[i].aktualispozX = KezdoKartyakhelye.X;
-                        lap[i].aktualispozY = KezdoKartyakhelye.Y;
+                        //lap[i].aktualispozX = KezdoKartyakhelye.X + (a * 70);
+                        //lap[i].aktualispozY = KezdoKartyakhelye.Y;
                         //Ezt azért csináltam mert ha az elsőt lapot kihelyeztem a fehér mezőre akkor a következőt nem rá
                         //hanem utána szeretném rakni. Az "a" változo igazából azt szeretné jelképzni hogy hányadik éppen vagy hányadiknál tartunk
                         // ezért ha az 1-re változik akkor alapból a következőt is ráhelyezné de igy (a * 70) 70-el eltoltam jobbra 
                         // a következőt 140-el azt következőt pedig 210-el stb....
-                        g.DrawImage(OstromKartya, lap[i].aktualispozX + (a * 70), lap[i].aktualispozY);
+                        // g.DrawImage(OstromKartya, lap[i].aktualispozX, lap[i].aktualispozY);
                         a++;
 
                         //Ezt azért írtam ide hogy fejebb a lap[i] elem rögzitett poziciója az Kezdokártya lenne csak rajzolásnál
                         //tolja el, de nem jegyzi meg, ezért raktam ide ezt ha már eltolja akkor lap[i]-ben is nyomja el
-                        lap[i].aktualispozX = lap[i].aktualispozX + (a * 70);
+                       // lap[i].aktualispozX = lap[i].aktualispozX + (a * 70);
                     }
                     //Amit fentebb csinálok azt itt is lemásoltam
                     if (lap[i].kategoria == "Tavolsagi")
                     {
-                        lap[i].aktualispozX = KezdoKartyakhelye.X;
-                        lap[i].aktualispozY = KezdoKartyakhelye.Y;
+                        //lap[i].aktualispozX = KezdoKartyakhelye.X + (a * 70);
+                        //lap[i].aktualispozY = KezdoKartyakhelye.Y;
 
-                        g.DrawImage(TavolsagiKartya, lap[i].aktualispozX + (a * 70), lap[i].aktualispozY);
+                        // g.DrawImage(TavolsagiKartya, lap[i].aktualispozX, lap[i].aktualispozY);
                         a++;
 
-                        lap[i].aktualispozX = lap[i].aktualispozX + (a * 70);
+                       // lap[i].aktualispozX = lap[i].aktualispozX + (a * 70);
 
                     }
                     //Valamit itt is csak közelharcosra
                     if (lap[i].kategoria == "Kozelharcos")
                     {
-                        lap[i].aktualispozX = KezdoKartyakhelye.X;
-                        lap[i].aktualispozY = KezdoKartyakhelye.Y;
+                       // lap[i].aktualispozX = KezdoKartyakhelye.X + (a * 70);
+                       // lap[i].aktualispozY = KezdoKartyakhelye.Y;
 
-                        g.DrawImage(KozelharcosKartya, lap[i].aktualispozX + (a * 70), lap[i].aktualispozY);
+                        // g.DrawImage(KozelharcosKartya, lap[i].aktualispozX , lap[i].aktualispozY);
                         a++;
 
-                        lap[i].aktualispozX = lap[i].aktualispozX + (a * 70);
+                        //lap[i].aktualispozX = lap[i].aktualispozX + (a * 70);
                     }
                 }
             }
               /*-------------------------------------------------------------------------------------------- */
 
             //Ez a kiválasztott kártyát szeretné újrarajzolni
-            if (Kulzorkartyan)
-            {
-                g.DrawImage(KozelharcosKartya, lap[Index].aktualispozX, lap[Index].aktualispozY);
-            }
+ 
+                //g.DrawImage(KozelharcosKartya, lap[Index].aktualispozX, lap[Index].aktualispozY);
+                
+            
             /*------------------------------------------------------------------------*/
         }
 
@@ -484,37 +610,46 @@ namespace Kartya
         //Egér mozgatás
         private void Form1_MouseMove(object sender, MouseEventArgs e)
         {
+            //Ideiglenespoz
             //Ha a kiválasztott kártyán "Ideiglenespoz"-on rajta volt a kulzor/rákattintottak
-            if (Kartyabanakulzor(Ideiglenespoz, Alapkartya))
-            { 
-                aktualiskulzorpozicio = Control.MousePosition;
-                //és nyomjuk a balgombot
-                if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            if (Kartyabanakulzor(lap2helye, Alapkartya))
+            {
+                if (!lap2zarolasa)
                 {
-                    //ezeket régen használtam
-                    TavKartyazarolas = true;
-                    OstKartyazarolas = true;
-                    //akkor itt egyszer lelockoljuk a kulzort hogy mozgatásnál nem mozduljon el
-                    if (kulzorlock.X == -1 && kulzorlock.Y == -1)
+
+                    aktualiskulzorpozicio = Control.MousePosition;
+                    //és nyomjuk a balgombot
+                    if (e.Button == System.Windows.Forms.MouseButtons.Left)
                     {
-                        //Ezt még nekem is alaposan át kell gondolnom hogy mi is történik itt
-                        //Mivel itt akadtam el, de ezt levélben már kifejtettem
-                        elozopozicio.X = lap[Index].aktualispozX;
-                        elozopozicio.Y = lap[Index].aktualispozY;
-                        kulzorlock.X = Control.MousePosition.X - lap[Index].aktualispozX;
-                        kulzorlock.Y = Control.MousePosition.Y - lap[Index].aktualispozY;
-                        //Kulzorlock legyen = a kulzorlock - kártyahelye
+                        //ezeket régen használtam
+                        //TavKartyazarolas = true;
+                        //OstKartyazarolas = true;
+                        //akkor itt egyszer lelockoljuk a kulzort hogy mozgatásnál nem mozduljon el
+                        if (kulzorlock.X == -1 && kulzorlock.Y == -1)
+                        {
+                            //Ezt még nekem is alaposan át kell gondolnom hogy mi is történik itt
+                            //Mivel itt akadtam el, de ezt levélben már kifejtettem
+                            elozopozicio.X = lap2helye.X;
+                            elozopozicio.Y = lap2helye.Y;
+
+                            kulzorlock.X = aktualiskulzorpozicio.X - lap2helye.X;
+                            kulzorlock.Y = aktualiskulzorpozicio.Y - lap2helye.Y;
+
+                            //Kulzorlock legyen = a kulzorlock - kártyahelye
+
+                        }
+                        //kicsit feljebb ugye le lockoltuk a kulzort tehát ha ide belép akkor a kiválasztott("Index")
+                        //lapnak a pozicióját módosítom és majd g.DrawImage-ben újra írom, de itt már ugye Frissítem szóval nem értem
+                        else
+                        {
+                            lap2helye.X = MousePosition.X - kulzorlock.X;
+                            lap2helye.Y = MousePosition.Y - kulzorlock.Y;
+
+                            this.Refresh();
+                        }
+
 
                     }
-                    //kicsit feljebb ugye le lockoltuk a kulzort tehát ha ide belép akkor a kiválasztott("Index")
-                    //lapnak a pozicióját módosítom és majd g.DrawImage-ben újra írom, de itt már ugye Frissítem szóval nem értem
-                    else
-                    {
-                        lap[Index].aktualispozX = MousePosition.X - kulzorlock.X;
-                        lap[Index].aktualispozY = MousePosition.Y - kulzorlock.Y;
-                        this.Refresh();
-                    }
-
                 }
                 #region Regikod
 
@@ -589,83 +724,32 @@ namespace Kartya
         {
             //Ez is régi kód
             //kijelolve=false;
-            KozKartyazarolas = false;
-            TavKartyazarolas = false;
-            OstKartyazarolas = false;
+            //KozKartyazarolas = false;
+            //TavKartyazarolas = false;
+            //OstKartyazarolas = false;
             /*-------------------------*/
 
             //Ez ugye azt csinálja ,hogy ha a kártya a mező Bitmapját éritem az arra megfelelő lappal itt a Közelharcos kategóriáju
             //lappal akkor lehelyezi oda és nem engedi kivenni többet
             //Közelharcos
-            if (Kartya_a_mezobe_van_helyezve(Kozelharcoskartyahelye, Kozelharcosmezohelye, KozelharcosMezo, Egerfelengedve, KozKartyazarolas, KozelharcosKartya))
+
+            
+
+            if (Kartya_a_mezobe_van_helyezve(lap2helye, Kozelharcosmezohelye, KozelharcosMezo, Egerfelengedve, lap2zarolasa, Alapkartya))
             {
                 //Manuálisan megadom melyik pozicióba legyen lezárva a kártyalap
-                Kozelharcoskartyahelye.X = Kozelharcosmezohelye.X + 5;
-                Kozelharcoskartyahelye.Y = Kozelharcosmezohelye.Y + 2;
+                lap2helye.X = Kozelharcosmezohelye.X + 5;
+                lap2helye.Y = Kozelharcosmezohelye.Y + 2;
                 this.Refresh();
-                KozKartyazarolas = true;
+                lap2zarolasa = true;
             }
-            /*
             else
             {
-                //Az összes kártyának kell egy elöző pozició
-                //ezt a Osztályba szeretném beleírni minden kártáynak egyedi ugye
-                Kozelharcoskartyahelye = elozopozicio;
+                lap2helye.X = KezdoKartyakhelye.X;
+                lap2helye.Y = KezdoKartyakhelye.Y;
                 this.Refresh();
             }
-            */
-
-            //Távolsági
-            if (Kartya_a_mezobe_van_helyezve(Tavolsagikartyahelye, Tavolsagimezohelye, TavolsagiMezo, Egerfelengedve, TavKartyazarolas, TavolsagiKartya))
-            {
-                //Manuálisan megadom melyik pozicióba legyen lezárva a kártyalap
-                Tavolsagikartyahelye.X = Tavolsagimezohelye.X + 5;
-                Tavolsagikartyahelye.Y = Tavolsagimezohelye.Y + 2;
-                this.Refresh();
-                TavKartyazarolas = true;
-            }
-            /*
-            else
-            {
-                Tavolsagikartyahelye = elozopozicio;
-                this.Refresh();
-            }
-            */
-
-            //Ostrom mező 1
-            if (Kartya_a_mezobe_van_helyezve(Ostromkartyahelye, Ostrommezohelye1, OstromMezo1, Egerfelengedve, OstKartyazarolas, OstromKartya))
-            {
-                //Manuálisan megadom melyik pozicióba legyen lezárva a kártyalap
-                Ostromkartyahelye.X = Ostrommezohelye1.X + 5;
-                Ostromkartyahelye.Y = Ostrommezohelye1.Y + 2;
-                this.Refresh();
-                OstKartyazarolas = true;
-            }
-            /*
-            else
-            {
-                Ostromkartyahelye = elozopozicio;
-                this.Refresh();
-            }
-            */
-
-
-            if (Kartya_a_mezobe_van_helyezve(Ostromkartyahelye, Ostrommezohelye2, OstromMezo2, Egerfelengedve, OstKartyazarolas, OstromKartya))
-            {
-                //Manuálisan megadom melyik pozicióba legyen lezárva a kártyalap
-                Ostromkartyahelye.X = Ostrommezohelye2.X + 5;
-                Ostromkartyahelye.Y = Ostrommezohelye2.Y + 2;
-                this.Refresh();
-                OstKartyazarolas = true;
-            }
-            /*
-            else
-            {
-                Ostromkartyahelye = elozopozicio;
-                this.Refresh();
-            }
-            */
-
+            
             kulzorlock.X = -1;
             kulzorlock.Y = -1;
         }
@@ -686,13 +770,6 @@ namespace Kartya
                 lapok[i].erteke = int.Parse(tmp[1]);
                 lapok[i].kategoria = tmp[2];
                 lapok[i].keppeseg = tmp[3];
-            }
-
-            
-
-            for (int i = 1; i < lapok.Length; i++)
-            {
-                Pontszamolas(lapok[i].erteke, ref osszertek);
             }
         }
 
@@ -738,7 +815,6 @@ namespace Kartya
         //Először MouseHoverrel szerettem volna megcsinálni a kijelölést de nem sikerült
         private void Form1_MouseHover(object sender, EventArgs e)
         {
-            
 
         }
 
@@ -763,8 +839,8 @@ namespace Kartya
                 for (int i = 1; i < lap.Length; i++)
                 {
                     lap[i].zarolva = true;
-                    Ideiglenespoz.X = lap[i].aktualispozX;
-                    Ideiglenespoz.Y = lap[i].aktualispozY;
+                  //  Ideiglenespoz.X = lap[i].aktualispozX;
+                  //  Ideiglenespoz.Y = lap[i].aktualispozY;
                     
 
                     //Ha megtaláltam akkor megjegyzem melyik volt az a ciklusban 
@@ -793,5 +869,38 @@ namespace Kartya
             }
             
         }
+
+        public static void Elsokilenckartya(int[]paklitartalma, ref List<int> Lrandomszam)
+        {
+            int mennyiseg = 9;
+            Randomkartyahuzas(mennyiseg, paklitartalma,ref Lrandomszam);
+        }
+
+        public static void Randomkartyahuzas(int mennyiseg,int[]paklitartalma,ref List<int> Lrandomszam)
+        {
+            Random rnd = new Random();
+
+
+            //int[] paklitartalma = new int[25] {1,2,3,4,5,6,7,8,9,10,11,12,13,
+                                              // 14,15,16,17,18,19,20,21,22,23,24,25 };
+
+            //List<int> Lrandomszam = new List<int>();
+
+            while (mennyiseg != 0)
+            {
+                //Ha a random számot megtalálja a Lrandomszam-ban akkor nem csináljon semmit
+                //ha nem akkor adja hozzá az Lrandomszámhoz a random számot és a mennyiséget csökkentjük
+                // azért csökkentem mert ha a listába rakott egy elemet akkor egy kártáyval kevesebbet kell kihuznom pakaliból
+                int random = rnd.Next(1, 25);
+                if (!Lrandomszam.Contains(random))
+                {
+                    Lrandomszam.Add(random);
+                    mennyiseg--;
+                }
+
+            }
+        }
+
+
     }
 }
