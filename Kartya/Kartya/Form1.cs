@@ -88,6 +88,8 @@ namespace Kartya
         bool Kulzorkartyan = false;
         bool folyamatban = false;
 
+        List<int> Kartyakpalyan = new List<int>();
+
         int Kmezolepteto = 0;
         int Tmezolepteto = 0;
         int Omezo1lepteto = 0;
@@ -140,11 +142,15 @@ namespace Kartya
         Point Kijeloltmezohelye;
         Bitmap Kijeloltmezo;
         bool Kijeloltkartyazarolasa;
+        bool egyszer1 = false;
+        bool egyszer2 = false;
+        bool egyszer3 = false;
+        bool egyszer4 = false;
 
         //Játékos Paklija
         //"Királyság" lapok
 
-        
+
 
         private Bitmap lap1 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Kiraly.png");
         private Point lap1helye = new Point(1250, 605);
@@ -318,6 +324,8 @@ namespace Kartya
 
         private Point EllPaklihelye = new Point(30, 5);
         private Point EllTemetohelye = new Point(100, 5);
+
+       
 
         //Pen feher = new Pen(Color.White);
         Point kulzorlock = new Point(-1, -1);
@@ -3392,6 +3400,8 @@ namespace Kartya
                     lap1zarolasa = true;
                     Kozmezoben.Add(egy);
                     Kmezolepteto++;
+                    egyszer1 = true;
+                    Kartyakpalyan.Add(1);
                 }
                 
             }
@@ -3420,6 +3430,8 @@ namespace Kartya
                     lap2zarolasa = true;
                     Kozmezoben.Add(k);
                     Kmezolepteto++;
+                    egyszer1 = true;
+                    Kartyakpalyan.Add(2);
                 }
             }
             else
@@ -3446,6 +3458,8 @@ namespace Kartya
                     lap3zarolasa = true;
                     Kozmezoben.Add(h);
                     Kmezolepteto++;
+                    egyszer1 = true;
+                    Kartyakpalyan.Add(3);
                 }
             }
             else
@@ -3472,6 +3486,8 @@ namespace Kartya
                     lap4zarolasa = true;
                     Kozmezoben.Add(negy);
                     Kmezolepteto++;
+                    egyszer1 = true;
+                    Kartyakpalyan.Add(4);
                 }
                 
             }
@@ -3499,6 +3515,8 @@ namespace Kartya
                     lap5zarolasa = true;
                     Tavmezoben.Add(ot);
                     Tmezolepteto++;
+                    egyszer2 = true;
+                    Kartyakpalyan.Add(5);
                 }
             }
             else
@@ -3525,6 +3543,8 @@ namespace Kartya
                     lap6zarolasa = true;
                     Tavmezoben.Add(hat);
                     Tmezolepteto++;
+                    egyszer2 = true;
+                    Kartyakpalyan.Add(6);
                 }
             }
             else
@@ -3551,6 +3571,8 @@ namespace Kartya
                     lap7zarolasa = true;
                     Tavmezoben.Add(het);
                     Tmezolepteto++;
+                    egyszer2 = true;
+                    Kartyakpalyan.Add(7);
                 }
             }
             else
@@ -3577,6 +3599,8 @@ namespace Kartya
                     lap8zarolasa = true;
                     Kozmezoben.Add(nyolc);
                     Kmezolepteto++;
+                    egyszer1 = true;
+                    Kartyakpalyan.Add(8);
                 }
             }
             else
@@ -3603,6 +3627,8 @@ namespace Kartya
                     lap9zarolasa = true;
                     Kozmezoben.Add(ki);
                     Kmezolepteto++;
+                    egyszer1 = true;
+                    Kartyakpalyan.Add(9);
                 }
             }
             else
@@ -3629,6 +3655,8 @@ namespace Kartya
                     lap10zarolasa = true;
                     Kozmezoben.Add(tiz);
                     Kmezolepteto++;
+                    egyszer1 = true;
+                    Kartyakpalyan.Add(10);
                 }
             }
             else
@@ -3655,6 +3683,8 @@ namespace Kartya
                     lap11zarolasa = true;
                     Kozmezoben.Add(tegy);
                     Kmezolepteto++;
+                    egyszer1 = true;
+                    Kartyakpalyan.Add(11);
                 }
             }
             else
@@ -3682,6 +3712,8 @@ namespace Kartya
                     //EllenségKozmezobe majd
                     Kozmezoben.Add(tizenk);
                     Kmezolepteto++;
+                    egyszer1 = true;
+                    Kartyakpalyan.Add(12);
                 }
             }
             else
@@ -3708,6 +3740,8 @@ namespace Kartya
                     lap13zarolasa = true;
                     Tavmezoben.Add(th);
                     Tmezolepteto++;
+                    egyszer2 = true;
+                    Kartyakpalyan.Add(13);
                 }
             }
             else
@@ -3734,6 +3768,8 @@ namespace Kartya
                     lap14zarolasa = true;
                     Tavmezoben.Add(tnegy);
                     Tmezolepteto++;
+                    egyszer2 = true;
+                    Kartyakpalyan.Add(14);
                 }
             }
             else
@@ -3760,6 +3796,8 @@ namespace Kartya
                     lap15zarolasa = true;
                     Tavmezoben.Add(to);
                     Tmezolepteto++;
+                    egyszer2 = true;
+                    Kartyakpalyan.Add(15);
                 }
 
             }
@@ -3787,6 +3825,8 @@ namespace Kartya
                     lap16zarolasa = true;
                     Ostrommezoben1.Add(th);
                     Omezo1lepteto++;
+                    egyszer3 = true;
+                    Kartyakpalyan.Add(16);
                 }
             }
             else if (Kartya_a_mezobe_van_helyezve(lap16helye, Ostrommezohelye2, OstromMezo2, lap16zarolasa, Alapkartya))
@@ -3801,6 +3841,8 @@ namespace Kartya
                     lap16zarolasa = true;
                     Ostrommezoben2.Add(th);
                     Omzeo2lepteto++;
+                    egyszer4 = true;
+                    Kartyakpalyan.Add(16);
                 }
             }
             else
@@ -3827,6 +3869,8 @@ namespace Kartya
                     lap17zarolasa = true;
                     Kozmezoben.Add(thet);
                     Kmezolepteto++;
+                    egyszer1 = true;
+                    Kartyakpalyan.Add(17);
                 }
             }
             else
@@ -3853,6 +3897,8 @@ namespace Kartya
                     lap18zarolasa = true;
                     Ostrommezoben1.Add(tn);
                     Omezo1lepteto++;
+                    egyszer3 = true;
+                    Kartyakpalyan.Add(18);
                 }
             }
             else if (Kartya_a_mezobe_van_helyezve(lap18helye, Ostrommezohelye2, OstromMezo2, lap18zarolasa, Alapkartya))
@@ -3867,6 +3913,8 @@ namespace Kartya
                     lap18zarolasa = true;
                     Ostrommezoben2.Add(tn);
                     Omzeo2lepteto++;
+                    egyszer4 = true;
+                    Kartyakpalyan.Add(18);
                 }
             }
             else
@@ -3894,6 +3942,8 @@ namespace Kartya
                     lap19zarolasa = true;
                     Ostrommezoben1.Add(tk);
                     Omezo1lepteto++;
+                    egyszer3 = true;
+                    Kartyakpalyan.Add(19);
                 }
             }
             else if (Kartya_a_mezobe_van_helyezve(lap19helye, Ostrommezohelye2, OstromMezo2, lap19zarolasa, Alapkartya))
@@ -3909,6 +3959,8 @@ namespace Kartya
                     lap19zarolasa = true;
                     Ostrommezoben2.Add(tk);
                     Omzeo2lepteto++;
+                    egyszer4 = true;
+                    Kartyakpalyan.Add(19);
                 }
             }
             else
@@ -3935,6 +3987,8 @@ namespace Kartya
                     lap20zarolasa = true;
                     Ostrommezoben1.Add(h);
                     Omezo1lepteto++;
+                    egyszer3 = true;
+                    Kartyakpalyan.Add(20);
                 }
             }
             else if (Kartya_a_mezobe_van_helyezve(lap20helye, Ostrommezohelye2, OstromMezo2, lap20zarolasa, Alapkartya))
@@ -3949,6 +4003,8 @@ namespace Kartya
                     lap20zarolasa = true;
                     Ostrommezoben2.Add(h);
                     Omzeo2lepteto++;
+                    egyszer4 = true;
+                    Kartyakpalyan.Add(20);
                 }
             }
             else
@@ -3975,6 +4031,8 @@ namespace Kartya
                     lap21zarolasa = true;
                     Ostrommezoben1.Add(he);
                     Omezo1lepteto++;
+                    egyszer3 = true;
+                    Kartyakpalyan.Add(21);
                 }
             }
             else if (Kartya_a_mezobe_van_helyezve(lap21helye, Ostrommezohelye2, OstromMezo2, lap21zarolasa, Alapkartya))
@@ -3989,6 +4047,8 @@ namespace Kartya
                     lap21zarolasa = true;
                     Ostrommezoben2.Add(he);
                     Omzeo2lepteto++;
+                    egyszer4 = true;
+                    Kartyakpalyan.Add(21);
                 }
             }
             else
@@ -4015,6 +4075,8 @@ namespace Kartya
                     lap22zarolasa = true;
                     Kozmezoben.Add(hk);
                     Kmezolepteto++;
+                    egyszer1 = true;
+                    Kartyakpalyan.Add(22);
                 }
             }
             else
@@ -4041,6 +4103,8 @@ namespace Kartya
                     lap23zarolasa = true;
                     Tavmezoben.Add(hh);
                     Tmezolepteto++;
+                    egyszer2 = true;
+                    Kartyakpalyan.Add(23);
                 }
             }
             else if (Kartya_a_mezobe_van_helyezve(lap23helye, Kozelharcosmezohelye, KozelharcosMezo, lap23zarolasa, Alapkartya))
@@ -4055,6 +4119,8 @@ namespace Kartya
                     lap23zarolasa = true;
                     Kozmezoben.Add(hh);
                     Kmezolepteto++;
+                    egyszer1 = true;
+                    Kartyakpalyan.Add(23);
                 }
             }
             else
@@ -4081,6 +4147,8 @@ namespace Kartya
                     lap24zarolasa = true;
                     Kozmezoben.Add(hn);
                     Kmezolepteto++;
+                    egyszer1 = true;
+                    Kartyakpalyan.Add(24);
                 }
             }
             else
@@ -4107,6 +4175,8 @@ namespace Kartya
                     lap25zarolasa = true;
                     Kozmezoben.Add(ho);
                     Kmezolepteto++;
+                    egyszer1 = true;
+                    Kartyakpalyan.Add(25);
                 }
             }
             else
@@ -4141,9 +4211,123 @@ namespace Kartya
             }
         }
 
-        public static void Pontszamolas(int ertek, ref int osszertek)
+        public static void Pontszamolas(ref int osszertek, List<int> Kartyakamezon,ref bool egyszer)
         {
-            osszertek = osszertek + ertek;
+
+            int mennyiseg = Kartyakamezon.Count();
+             osszertek = 0;
+           // mennyiseg = Kartyakamezon.Count + 1;
+            while (mennyiseg != 0)
+            {
+                foreach (var k in Kartyakamezon)
+                {
+                    switch (k)
+                    {
+                        case 1:
+                            osszertek += 10;
+                            mennyiseg--;
+                            break;
+                        case 2:
+                            osszertek += 15;
+                            mennyiseg--;
+                            break;
+                        case 3:
+                            osszertek += 8;
+                            mennyiseg--;
+                            break;
+                        case 4:
+                            osszertek += 8;
+                            mennyiseg--;
+                            break;
+                        case 5:
+                            osszertek += 2;
+                            mennyiseg--;
+                            break;
+                        case 6:
+                            osszertek += 2;
+                            mennyiseg--;
+                            break;
+                        case 7:
+                            osszertek += 2;
+                            mennyiseg--;
+                            break;
+                        case 8:
+                            osszertek += 1;
+                            mennyiseg--;
+                            break;
+                        case 9:
+                            osszertek += 1;
+                            mennyiseg--;
+                            break;
+                        case 10:
+                            osszertek += 4;
+                            mennyiseg--;
+                            break;
+                        case 11:
+                            osszertek += 4;
+                            mennyiseg--;
+                            break;
+                        case 12:
+                            osszertek += 5;
+                            mennyiseg--;
+                            break;
+                        case 13:
+                            osszertek += 6;
+                            mennyiseg--;
+                            break;
+                        case 14:
+                            osszertek += 6;
+                            mennyiseg--;
+                            break;
+                        case 15:
+                            osszertek += 10;
+                            mennyiseg--;
+                            break;
+                        case 16:
+                            osszertek += 14;
+                            mennyiseg--;
+                            break;
+                        case 17:
+                            osszertek += 15;
+                            mennyiseg--;
+                            break;
+                        case 18:
+                            osszertek += 8;
+                            mennyiseg--;
+                            break;
+                        case 19:
+                            osszertek += 8;
+                            mennyiseg--;
+                            break;
+                        case 20:
+                            osszertek += 6;
+                            mennyiseg--;
+                            break;
+                        case 21:
+                            osszertek += 6;
+                            mennyiseg--;
+                            break;
+                        case 22:
+                            osszertek += 10;
+                            mennyiseg--;
+                            break;
+                        case 23:
+                            osszertek += 10;
+                            mennyiseg--;
+                            break;
+                        case 24:
+                            osszertek += 14;
+                            mennyiseg--;
+                            break;
+                        case 25:
+                            osszertek += 14;
+                            mennyiseg--;
+                            break;
+                    }
+                }
+            }
+            
+            //osszertek = osszertek + ertek;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -4153,7 +4337,36 @@ namespace Kartya
 
         private void label2_Paint(object sender, PaintEventArgs e)
         {
-            label2.Text = osszertek.ToString();
+            
+            if (egyszer1)
+            {
+                Pontszamolas(ref osszertek, Kartyakpalyan, ref egyszer1);
+                label2.Text = osszertek.ToString();
+            }
+
+            if(egyszer2)
+            {
+                Pontszamolas(ref osszertek, Kartyakpalyan, ref egyszer2);
+                label2.Text = osszertek.ToString();
+            }
+
+            if(egyszer3)
+            {
+                Pontszamolas( ref osszertek, Kartyakpalyan, ref egyszer3);
+                label2.Text = osszertek.ToString();
+            }
+
+            if(egyszer4)
+            {
+                Pontszamolas( ref osszertek, Kartyakpalyan, ref egyszer4);
+                label2.Text = osszertek.ToString();
+            }
+            egyszer1 = false;
+            egyszer2 = false;
+            egyszer3 = false;
+            egyszer4 = false;
+
+
         }
         //ez nem biztos hogy kellet de már megírtam használom
         private void Kategoriavalasztas(string kapottkategoria,ref string viszaadottkategoria)
@@ -4229,6 +4442,102 @@ namespace Kartya
             }
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Kmezolepteto = 0;
+            Tmezolepteto = 0;
+            Omezo1lepteto = 0;
+            Omzeo2lepteto = 0;
+            egyszer1 = true;
+            foreach (var k in Kartyakpalyan)
+            {
+                switch (k)
+                {
+                    case 1:
+                        lap1helye = Temetohelye;
+                        break;
+                    case 2:
+                        lap2helye = Temetohelye;
+                        break;
+                    case 3:
+                        lap3helye = Temetohelye;
+                        break;
+                    case 4:
+                        lap4helye = Temetohelye;
+                        break;
+                    case 5:
+                        lap5helye = Temetohelye;
+                        break;
+                    case 6:
+                        lap6helye = Temetohelye;
+                        break;
+                    case 7:
+                        lap7helye = Temetohelye;
+                        break;
+                    case 8:
+                        lap8helye = Temetohelye;
+                        break;
+                    case 9:
+                        lap9helye = Temetohelye;
+                        break;
+                    case 10:
+                        lap10helye = Temetohelye;
+                        break;
+                    case 11:
+                        lap11helye = Temetohelye;
+                        break;
+                    case 12:
+                        lap12helye = Temetohelye;
+                        break;
+                    case 13:
+                        lap13helye = Temetohelye;
+                        break;
+                    case 14:
+                        lap14helye = Temetohelye;
+                        break;
+                    case 15:
+                        lap15helye = Temetohelye;
+                        break;
+                    case 16:
+                        lap16helye = Temetohelye;
+                        break;
+                    case 17:
+                        lap17helye = Temetohelye;
+                        break;
+                    case 18:
+                        lap18helye = Temetohelye;
+                        break;
+                    case 19:
+                        lap19helye = Temetohelye;
+                        break;
+                    case 20:
+                        lap20helye = Temetohelye;
+                        break;
+                    case 21:
+                        lap21helye = Temetohelye;
+                        break;
+                    case 22:
+                        lap22helye = Temetohelye;
+                        break;
+                    case 23:
+                        lap23helye = Temetohelye;
+                        break;
+                    case 24:
+                        lap24helye = Temetohelye;
+                        break;
+                    case 25:
+                        lap25helye = Temetohelye;
+                        break;
+                }
+            }
+            Kartyakpalyan.Clear();
+            if (egyszer1)
+            {
+                Pontszamolas(ref osszertek, Kartyakpalyan, ref egyszer1);
+                label2.Text = osszertek.ToString();
+            }
+            egyszer1 = false;
+            this.Refresh();
+        }
     }
 }
