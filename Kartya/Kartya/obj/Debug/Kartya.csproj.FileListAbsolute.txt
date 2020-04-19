@@ -18,3 +18,13 @@ C:\Users\User\Desktop\Zárodolgozat Program\Kartya\Kartya\obj\Debug\Kartya.cspro
 C:\Users\User\Desktop\Zárodolgozat Program\Kartya\Kartya\obj\Debug\Kartya.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\Zárodolgozat Program\Kartya\Kartya\obj\Debug\Kartya.exe
 C:\Users\User\Desktop\Zárodolgozat Program\Kartya\Kartya\obj\Debug\Kartya.pdb
+E:\Kartya\Kartya\bin\Debug\Kartya.exe.config
+E:\Kartya\Kartya\bin\Debug\Kartya.exe
+E:\Kartya\Kartya\bin\Debug\Kartya.pdb
+E:\Kartya\Kartya\obj\Debug\Kartya.csprojAssemblyReference.cache
+E:\Kartya\Kartya\obj\Debug\Kartya.Form1.resources
+E:\Kartya\Kartya\obj\Debug\Kartya.Properties.Resources.resources
+E:\Kartya\Kartya\obj\Debug\Kartya.csproj.GenerateResource.cache
+E:\Kartya\Kartya\obj\Debug\Kartya.csproj.CoreCompileInputs.cache
+E:\Kartya\Kartya\obj\Debug\Kartya.exe
+E:\Kartya\Kartya\obj\Debug\Kartya.pdb

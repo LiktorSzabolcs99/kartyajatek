@@ -31,6 +31,7 @@ namespace Kartya
     {
         #region Valtozok/logikai
         bool Ellenfelkore = false;
+        Random rnd = new Random();
         Kartyatulj[] lap = new Kartyatulj[30];
         public string kategoria;
         public int osszertek = 0;
@@ -108,37 +109,37 @@ namespace Kartya
         private Bitmap Alapkartya;
 
         private Bitmap KozelharcosKartya;
-        private Bitmap KozelharcosMezo = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\KozMezo.png");
+        private Bitmap KozelharcosMezo = new Bitmap(@"E:\Kartya\Kesz mezo\KozMezo.png");
 
         private Bitmap TavolsagiKartya;
-        private Bitmap TavolsagiMezo = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\TavMezo.png");
+        private Bitmap TavolsagiMezo = new Bitmap(@"E:\Kartya\Kesz mezo\TavMezo.png");
 
         private Bitmap OstromKartya;
-        Bitmap OstromMezo1 = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\OstMezo.png");
-        Bitmap OstromMezo2 = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\OstMezo.png");
+        Bitmap OstromMezo1 = new Bitmap(@"E:\Kartya\Kesz mezo\OstMezo.png");
+        Bitmap OstromMezo2 = new Bitmap(@"E:\Kartya\Kesz mezo\OstMezo.png");
 
         private Bitmap EllKozelharcosKartya;
-        private Bitmap EllKozelharcosMezo = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\KozMezo.png");
+        private Bitmap EllKozelharcosMezo = new Bitmap(@"E:\Kartya\Kesz mezo\KozMezo.png");
 
         private Bitmap EllTavolsagiKartya;
-        private Bitmap EllTavolsagiMezo = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\TavMezo.png");
+        private Bitmap EllTavolsagiMezo = new Bitmap(@"E:\Kartya\Kesz mezo\TavMezo.png");
 
         private Bitmap EllOstromKartya;
-        Bitmap EllOstromMezo1 = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\OstMezo.png");
-        Bitmap EllOstromMezo2 = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\OstMezo.png");
+        Bitmap EllOstromMezo1 = new Bitmap(@"E:\Kartya\Kesz mezo\OstMezo.png");
+        Bitmap EllOstromMezo2 = new Bitmap(@"E:\Kartya\Kesz mezo\OstMezo.png");
 
-        Bitmap Pakli = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\PT.png");
-        Bitmap EllPakli = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\PT.png");
+        Bitmap Pakli = new Bitmap(@"E:\Kartya\Kesz mezo\PT.png");
+        Bitmap EllPakli = new Bitmap(@"E:\Kartya\Kesz mezo\PT.png");
 
-        Bitmap Temeto = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\PT.png");
-        Bitmap EllTemeto = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\PT.png");
+        Bitmap Temeto = new Bitmap(@"E:\Kartya\Kesz mezo\PT.png");
+        Bitmap EllTemeto = new Bitmap(@"E:\Kartya\Kesz mezo\PT.png");
 
         private Bitmap Kartyakkezben;
         private Bitmap EllKartyakkezben;
 
-        Bitmap Esemenykartya = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\IJMezo.png");
+        Bitmap Esemenykartya = new Bitmap(@"E:\Kartya\Kesz mezo\IJMezo.png");
 
-        private Bitmap Boostkartya = new Bitmap(@"C:\Users\User\Desktop\Zárodolgozat\Kesz mezo\TavBonusz.png");
+        private Bitmap Boostkartya = new Bitmap(@"E:\Kartya\Kesz mezo\TavBonusz.png");
         #endregion
 
 
@@ -286,127 +287,127 @@ namespace Kartya
         #endregion
 
         //Ellenfél paklia
-        private Bitmap Elap1 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Kiraly.png");
+        private Bitmap Elap1 = new Bitmap(@"E:\Kartya\Megszerkesztett\Kiraly.png");
         private Point Elap1helye = new Point(30, 5);
         bool Elap1zarolasa = false;
         Point Eelozopoz1 = new Point(0, 0);
 
-        private Bitmap Elap2 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Herceg03.png");
+        private Bitmap Elap2 = new Bitmap(@"E:\Kartya\Megszerkesztett\Herceg03.png");
         private Point Elap2helye = new Point(30, 5);
         bool Elap2zarolasa = false;
         Point Eelozopoz2 = new Point(0, 0);
 
-        private Bitmap Elap3 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Testor1.png");
+        private Bitmap Elap3 = new Bitmap(@"E:\Kartya\Megszerkesztett\Testor1.png");
         private Point Elap3helye = new Point(30, 5);
         bool Elap3zarolasa = false;
         Point Eelozopoz3 = new Point(0, 0);
 
-        private Bitmap Elap4 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Testor2.png");
+        private Bitmap Elap4 = new Bitmap(@"E:\Kartya\Megszerkesztett\Testor2.png");
         private Point Elap4helye = new Point(30, 5);
         bool Elap4zarolasa = false;
         Point Eelozopoz4 = new Point(0, 0);
 
-        private Bitmap Elap5 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\ijasz1.png");
+        private Bitmap Elap5 = new Bitmap(@"E:\Kartya\Megszerkesztett\ijasz1.png");
         private Point Elap5helye = new Point(30, 5);
         bool Elap5zarolasa = false;
         Point Eelozopoz5 = new Point(0, 0);
 
-        private Bitmap Elap6 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\ijasz2.png");
+        private Bitmap Elap6 = new Bitmap(@"E:\Kartya\Megszerkesztett\ijasz2.png");
         private Point Elap6helye = new Point(30, 5);
         bool Elap6zarolasa = false;
         Point Eelozopoz6 = new Point(0, 0);
 
-        private Bitmap Elap7 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\ijasz3.png");
+        private Bitmap Elap7 = new Bitmap(@"E:\Kartya\Megszerkesztett\ijasz3.png");
         private Point Elap7helye = new Point(30, 5);
         bool Elap7zarolasa = false;
         Point Eelozopoz7 = new Point(0, 0);
 
-        private Bitmap Elap8 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Foldmuves1.png");
+        private Bitmap Elap8 = new Bitmap(@"E:\Kartya\Megszerkesztett\Foldmuves1.png");
         private Point Elap8helye = new Point(30, 5);
         bool Elap8zarolasa = false;
         Point Eelozopoz8 = new Point(0, 0);
 
-        private Bitmap Elap9 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Foldmuves2.png");
+        private Bitmap Elap9 = new Bitmap(@"E:\Kartya\Megszerkesztett\Foldmuves2.png");
         private Point Elap9helye = new Point(30, 5);
         bool Elap9zarolasa = false;
         Point Eelozopoz9 = new Point(0, 0);
 
-        private Bitmap Elap10 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Sorkatona1.png");
+        private Bitmap Elap10 = new Bitmap(@"E:\Kartya\Megszerkesztett\Sorkatona1.png");
         private Point Elap10helye = new Point(30, 5);
         bool Elap10zarolasa = false;
         Point Eelozopoz10 = new Point(0, 0);
 
-        private Bitmap Elap11 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Sorkatona2.png");
+        private Bitmap Elap11 = new Bitmap(@"E:\Kartya\Megszerkesztett\Sorkatona2.png");
         private Point Elap11helye = new Point(30, 5);
         bool Elap11zarolasa = false;
         Point Eelozopoz11 = new Point(0, 0);
 
-        private Bitmap Elap12 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Zsoldos.png");
+        private Bitmap Elap12 = new Bitmap(@"E:\Kartya\Megszerkesztett\Zsoldos.png");
         private Point Elap12helye = new Point(30, 5);
         bool Elap12zarolasa = false;
         Point Eelozopoz12 = new Point(0, 0);
 
-        private Bitmap Elap13 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Szamszerijasz1.png");
+        private Bitmap Elap13 = new Bitmap(@"E:\Kartya\Megszerkesztett\Szamszerijasz1.png");
         private Point Elap13helye = new Point(30, 5);
         bool Elap13zarolasa = false;
         Point Eelozopoz13 = new Point(0, 0);
 
-        private Bitmap Elap14 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\szamszerijasz2.png");
+        private Bitmap Elap14 = new Bitmap(@"E:\Kartya\Megszerkesztett\szamszerijasz2.png");
         private Point Elap14helye = new Point(30, 5);
         bool Elap14zarolasa = false;
         Point Eelozopoz14 = new Point(0, 0);
 
-        private Bitmap Elap15 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Magus.png");
+        private Bitmap Elap15 = new Bitmap(@"E:\Kartya\Megszerkesztett\Magus.png");
         private Point Elap15helye = new Point(30, 5);
         bool Elap15zarolasa = false;
         Point Eelozopoz15 = new Point(0, 0);
 
-        private Bitmap Elap16 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Hajitogep1.png");
+        private Bitmap Elap16 = new Bitmap(@"E:\Kartya\Megszerkesztett\Hajitogep1.png");
         private Point Elap16helye = new Point(30, 5);
         bool Elap16zarolasa = false;
         Point Eelozopoz16 = new Point(0, 0);
 
-        private Bitmap Elap17 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Lovag.png");
+        private Bitmap Elap17 = new Bitmap(@"E:\Kartya\Megszerkesztett\Lovag.png");
         private Point Elap17helye = new Point(30, 5);
         bool Elap17zarolasa = false;
         Point Eelozopoz17 = new Point(0, 0);
 
-        private Bitmap Elap18 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Katapult1.png");
+        private Bitmap Elap18 = new Bitmap(@"E:\Kartya\Megszerkesztett\Katapult1.png");
         private Point Elap18helye = new Point(30, 5);
         bool Elap18zarolasa = false;
         Point Eelozopoz18 = new Point(0, 0);
 
-        private Bitmap Elap19 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Katapult2.png");
+        private Bitmap Elap19 = new Bitmap(@"E:\Kartya\Megszerkesztett\Katapult2.png");
         private Point Elap19helye = new Point(30, 5);
         bool Elap19zarolasa = false;
         Point Eelozopoz19 = new Point(0, 0);
 
-        private Bitmap Elap20 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Ballista1.png");
+        private Bitmap Elap20 = new Bitmap(@"E:\Kartya\Megszerkesztett\Ballista1.png");
         private Point Elap20helye = new Point(30, 5);
         bool Elap20zarolasa = false;
         Point Eelozopoz20 = new Point(0, 0);
 
-        private Bitmap Elap21 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Ballista2.png");
+        private Bitmap Elap21 = new Bitmap(@"E:\Kartya\Megszerkesztett\Ballista2.png");
         private Point Elap21helye = new Point(30, 5);
         bool Elap21zarolasa = false;
         Point Eelozopoz21 = new Point(0, 0);
 
-        private Bitmap Elap22 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Lord.png");
+        private Bitmap Elap22 = new Bitmap(@"E:\Kartya\Megszerkesztett\Lord.png");
         private Point Elap22helye = new Point(30, 5);
         bool Elap22zarolasa = false;
         Point Eelozopoz22 = new Point(0, 0);
 
-        private Bitmap Elap23 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Ranger.png");
+        private Bitmap Elap23 = new Bitmap(@"E:\Kartya\Megszerkesztett\Ranger.png");
         private Point Elap23helye = new Point(30, 5);
         bool Elap23zarolasa = false;
         Point Eelozopoz23 = new Point(0, 0);
 
-        private Bitmap Elap24 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\nehezlovassag1.png");
+        private Bitmap Elap24 = new Bitmap(@"E:\Kartya\Megszerkesztett\nehezlovassag1.png");
         private Point Elap24helye = new Point(30, 5);
         bool Elap24zarolasa = false;
         Point Eelozopoz24 = new Point(0, 0);
 
-        private Bitmap Elap25 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\nehezlovassag2.png");
+        private Bitmap Elap25 = new Bitmap(@"E:\Kartya\Megszerkesztett\nehezlovassag2.png");
         private Point Elap25helye = new Point(30, 5);
         bool Elap25zarolasa = false;
         Point Eelozopoz25 = new Point(0, 0);
@@ -462,10 +463,15 @@ namespace Kartya
         //Pen feher = new Pen(Color.White);
         Point kulzorlock = new Point(-1, -1);
 
-        Point aktualiskulzorpozicio = MousePosition; 
+        Point aktualiskulzorpozicio = MousePosition;
+
+
         #endregion
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
+        }
 
         public Form1()
         {
@@ -1302,6 +1308,7 @@ namespace Kartya
                     */
             if (Ellenfelkore)
             {
+                
                 csakegyszerlap1 = true;
                 if (csakegyszerlap1)
                 {
@@ -1309,13 +1316,17 @@ namespace Kartya
                 }
                 csakegyszerlap1 = false;
 
-
+                
+                
+                    
+                
 
                 switch (kivalasztott)
                 {
                     case 1:
                         Elap1helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap1helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1323,6 +1334,7 @@ namespace Kartya
                     case 2:
                         Elap2helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap2helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1331,6 +1343,7 @@ namespace Kartya
                         //kozelharcos/tav
                         Elap3helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap3helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1338,6 +1351,7 @@ namespace Kartya
                     case 4:
                         Elap4helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap4helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1345,6 +1359,7 @@ namespace Kartya
                     case 5:
                         Elap5helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap5helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1352,6 +1367,7 @@ namespace Kartya
                     case 6:
                         Elap6helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap6helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1359,6 +1375,7 @@ namespace Kartya
                     case 7:
                         Elap7helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap7helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1366,6 +1383,7 @@ namespace Kartya
                     case 8:
                         Elap8helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap8helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1373,6 +1391,7 @@ namespace Kartya
                     case 9:
                         Elap9helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap9helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1380,6 +1399,7 @@ namespace Kartya
                     case 10:
                         Elap10helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
                         Elap10helye.Y = EllTavolsagimezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllTmezolepteto++;
                         break;
@@ -1387,6 +1407,7 @@ namespace Kartya
                     case 11:
                         Elap11helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
                         Elap11helye.Y = EllTavolsagimezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllTmezolepteto++;
                         break;
@@ -1394,6 +1415,7 @@ namespace Kartya
                     case 12:
                         Elap12helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
                         Elap12helye.Y = EllTavolsagimezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllTmezolepteto++;
                         break;
@@ -1401,12 +1423,14 @@ namespace Kartya
                     case 13:
                         Elap13helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
                         Elap13helye.Y = EllTavolsagimezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         break;
 
                     case 14:
                         Elap14helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap14helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1414,6 +1438,7 @@ namespace Kartya
                     case 15:
                         Elap15helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
                         Elap15helye.Y = EllTavolsagimezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllTmezolepteto++;
                         break;
@@ -1421,6 +1446,7 @@ namespace Kartya
                     case 16:
                         Elap16helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
                         Elap16helye.Y = EllTavolsagimezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllTmezolepteto++;
                         break;
@@ -1428,6 +1454,7 @@ namespace Kartya
                     case 17:
                         Elap17helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap17helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1435,6 +1462,7 @@ namespace Kartya
                     case 18:
                         Elap18helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap18helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1442,6 +1470,7 @@ namespace Kartya
                     case 19:
                         Elap19helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap19helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1449,6 +1478,7 @@ namespace Kartya
                     case 20:
                         Elap20helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap20helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1456,6 +1486,7 @@ namespace Kartya
                     case 21:
                         Elap21helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap21helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1463,6 +1494,7 @@ namespace Kartya
                     case 22:
                         Elap22helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
                         Elap22helye.Y = EllTavolsagimezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllTmezolepteto++;
                         break;
@@ -1470,6 +1502,7 @@ namespace Kartya
                     case 23:
                         Elap23helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap23helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1477,6 +1510,7 @@ namespace Kartya
                     case 24:
                         Elap24helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap24helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1484,6 +1518,7 @@ namespace Kartya
                     case 25:
                         Elap25helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
                         Elap25helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
                         break;
@@ -1494,7 +1529,7 @@ namespace Kartya
                 }
                 
             }
-           Ellenfelkore = false;
+           //Ellenfelkore = false;
 
 
         }
@@ -1531,7 +1566,7 @@ namespace Kartya
                 //tehát az egeret felengedtük
 
                 //Ezt lejebb oldottam meg 
-                Ellenfelkore = true;
+                
                 return true;
                     
 
@@ -4005,6 +4040,7 @@ namespace Kartya
                     Kmezolepteto++;
                     egyszer1 = true;
                     Kartyakpalyan.Add(1);
+                    Ellenfelkore = true;
                 }
                 
             }
@@ -4064,6 +4100,7 @@ namespace Kartya
                     Kmezolepteto++;
                     egyszer1 = true;
                     Kartyakpalyan.Add(3);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4092,6 +4129,7 @@ namespace Kartya
                     Kmezolepteto++;
                     egyszer1 = true;
                     Kartyakpalyan.Add(4);
+                    Ellenfelkore = true;
                 }
                 
             }
@@ -4121,6 +4159,7 @@ namespace Kartya
                     Tmezolepteto++;
                     egyszer2 = true;
                     Kartyakpalyan.Add(5);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4149,6 +4188,7 @@ namespace Kartya
                     Tmezolepteto++;
                     egyszer2 = true;
                     Kartyakpalyan.Add(6);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4177,6 +4217,7 @@ namespace Kartya
                     Tmezolepteto++;
                     egyszer2 = true;
                     Kartyakpalyan.Add(7);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4205,6 +4246,7 @@ namespace Kartya
                     Kmezolepteto++;
                     egyszer1 = true;
                     Kartyakpalyan.Add(8);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4233,6 +4275,7 @@ namespace Kartya
                     Kmezolepteto++;
                     egyszer1 = true;
                     Kartyakpalyan.Add(9);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4261,6 +4304,7 @@ namespace Kartya
                     Kmezolepteto++;
                     egyszer1 = true;
                     Kartyakpalyan.Add(10);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4289,6 +4333,7 @@ namespace Kartya
                     Kmezolepteto++;
                     egyszer1 = true;
                     Kartyakpalyan.Add(11);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4318,6 +4363,7 @@ namespace Kartya
                     Kmezolepteto++;
                     egyszer1 = true;
                     Kartyakpalyan.Add(12);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4346,6 +4392,7 @@ namespace Kartya
                     Tmezolepteto++;
                     egyszer2 = true;
                     Kartyakpalyan.Add(13);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4374,6 +4421,7 @@ namespace Kartya
                     Tmezolepteto++;
                     egyszer2 = true;
                     Kartyakpalyan.Add(14);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4402,6 +4450,7 @@ namespace Kartya
                     Tmezolepteto++;
                     egyszer2 = true;
                     Kartyakpalyan.Add(15);
+                    Ellenfelkore = true;
                 }
 
             }
@@ -4431,6 +4480,7 @@ namespace Kartya
                     Omezo1lepteto++;
                     egyszer3 = true;
                     Kartyakpalyan.Add(16);
+                    Ellenfelkore = true;
                 }
             }
             else if (Kartya_a_mezobe_van_helyezve(lap16helye, Ostrommezohelye2, OstromMezo2, lap16zarolasa, Alapkartya))
@@ -4447,6 +4497,7 @@ namespace Kartya
                     Omzeo2lepteto++;
                     egyszer4 = true;
                     Kartyakpalyan.Add(16);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4475,6 +4526,7 @@ namespace Kartya
                     Kmezolepteto++;
                     egyszer1 = true;
                     Kartyakpalyan.Add(17);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4503,6 +4555,7 @@ namespace Kartya
                     Omezo1lepteto++;
                     egyszer3 = true;
                     Kartyakpalyan.Add(18);
+                    Ellenfelkore = true;
                 }
             }
             else if (Kartya_a_mezobe_van_helyezve(lap18helye, Ostrommezohelye2, OstromMezo2, lap18zarolasa, Alapkartya))
@@ -4519,6 +4572,7 @@ namespace Kartya
                     Omzeo2lepteto++;
                     egyszer4 = true;
                     Kartyakpalyan.Add(18);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4548,6 +4602,7 @@ namespace Kartya
                     Omezo1lepteto++;
                     egyszer3 = true;
                     Kartyakpalyan.Add(19);
+                    Ellenfelkore = true;
                 }
             }
             else if (Kartya_a_mezobe_van_helyezve(lap19helye, Ostrommezohelye2, OstromMezo2, lap19zarolasa, Alapkartya))
@@ -4565,6 +4620,7 @@ namespace Kartya
                     Omzeo2lepteto++;
                     egyszer4 = true;
                     Kartyakpalyan.Add(19);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4593,6 +4649,7 @@ namespace Kartya
                     Omezo1lepteto++;
                     egyszer3 = true;
                     Kartyakpalyan.Add(20);
+                    Ellenfelkore = true;
                 }
             }
             else if (Kartya_a_mezobe_van_helyezve(lap20helye, Ostrommezohelye2, OstromMezo2, lap20zarolasa, Alapkartya))
@@ -4609,6 +4666,7 @@ namespace Kartya
                     Omzeo2lepteto++;
                     egyszer4 = true;
                     Kartyakpalyan.Add(20);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4637,6 +4695,7 @@ namespace Kartya
                     Omezo1lepteto++;
                     egyszer3 = true;
                     Kartyakpalyan.Add(21);
+                    Ellenfelkore = true;
                 }
             }
             else if (Kartya_a_mezobe_van_helyezve(lap21helye, Ostrommezohelye2, OstromMezo2, lap21zarolasa, Alapkartya))
@@ -4653,6 +4712,7 @@ namespace Kartya
                     Omzeo2lepteto++;
                     egyszer4 = true;
                     Kartyakpalyan.Add(21);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4681,6 +4741,7 @@ namespace Kartya
                     Kmezolepteto++;
                     egyszer1 = true;
                     Kartyakpalyan.Add(22);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4709,6 +4770,7 @@ namespace Kartya
                     Tmezolepteto++;
                     egyszer2 = true;
                     Kartyakpalyan.Add(23);
+                    Ellenfelkore = true;
                 }
             }
             else if (Kartya_a_mezobe_van_helyezve(lap23helye, Kozelharcosmezohelye, KozelharcosMezo, lap23zarolasa, Alapkartya))
@@ -4725,6 +4787,7 @@ namespace Kartya
                     Kmezolepteto++;
                     egyszer1 = true;
                     Kartyakpalyan.Add(23);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4753,6 +4816,7 @@ namespace Kartya
                     Kmezolepteto++;
                     egyszer1 = true;
                     Kartyakpalyan.Add(24);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4760,7 +4824,7 @@ namespace Kartya
                 lap24helye = elozopozicio24;
                // lap2helye.X = KezdoKartyakhelye.X;
                // lap2helye.Y = KezdoKartyakhelye.Y;
-                this.Refresh();
+               // this.Refresh();
             }
 
             kulzorlock.X = -1;
@@ -4789,7 +4853,7 @@ namespace Kartya
                 lap25helye = elozopozicio25;
                // lap2helye.X = KezdoKartyakhelye.X;
                // lap2helye.Y = KezdoKartyakhelye.Y;
-                this.Refresh();
+                //this.Refresh();
             }
             
             kulzorlock.X = -1;
@@ -5067,8 +5131,11 @@ namespace Kartya
             }
             kivalasztott = szam;
             */
-
-            kivalasztott = Kihelyezettlapok[rnd.Next(0, szamlalo - 1)];
+            if (szamlalo != 0)
+            {
+                kivalasztott = Kihelyezettlapok[rnd.Next(0, szamlalo - 1)];
+                Kihelyezettlapok.Remove(kivalasztott);
+            }
             
         }
 
