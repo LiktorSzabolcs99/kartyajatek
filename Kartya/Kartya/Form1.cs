@@ -34,6 +34,7 @@ namespace Kartya
         public string kategoria;
         public int osszertek = 0;
         public List<int> Lrandomszam = new List<int>();
+        public List<int> Ellenfelrandomszam = new List<int>();
         int[] paklitartalma = new int[25] {1,2,3,4,5,6,7,8,9,10,11,12,13,
                                                14,15,16,17,18,19,20,21,22,23,24,25 };
 
@@ -77,8 +78,10 @@ namespace Kartya
             ID23, ID24, ID25;
 
         int lepteto = 0;
+        int Elllepteto = 0;
         int csakegyszer = 0;
         int csakegyszer02 = 0;
+        int csakegyszer03 = 0;
         int csakegyszerlap1 = 0;
         int Index = 0;
         bool Egerfelengedve = false;
@@ -149,8 +152,6 @@ namespace Kartya
 
         //Játékos Paklija
         //"Királyság" lapok
-
-
 
         private Bitmap lap1 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Kiraly.png");
         private Point lap1helye = new Point(1250, 605);
@@ -278,6 +279,132 @@ namespace Kartya
         Point elozopoz25 = new Point(0, 0);
         /*-------------------------------------------------------------------------------------*/
         #endregion
+
+        //Ellenfél paklia
+        private Bitmap Elap1 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Kiraly.png");
+        private Point Elap1helye = new Point(30, 5);
+        bool Elap1zarolasa = false;
+        Point Eelozopoz1 = new Point(0, 0);
+
+        private Bitmap Elap2 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Herceg03.png");
+        private Point Elap2helye = new Point(30, 5);
+        bool Elap2zarolasa = false;
+        Point Eelozopoz2 = new Point(0, 0);
+
+        private Bitmap Elap3 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Testor1.png");
+        private Point Elap3helye = new Point(30, 5);
+        bool Elap3zarolasa = false;
+        Point Eelozopoz3 = new Point(0, 0);
+
+        private Bitmap Elap4 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Testor2.png");
+        private Point Elap4helye = new Point(30, 5);
+        bool Elap4zarolasa = false;
+        Point Eelozopoz4 = new Point(0, 0);
+
+        private Bitmap Elap5 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\ijasz1.png");
+        private Point Elap5helye = new Point(30, 5);
+        bool Elap5zarolasa = false;
+        Point Eelozopoz5 = new Point(0, 0);
+
+        private Bitmap Elap6 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\ijasz2.png");
+        private Point Elap6helye = new Point(30, 5);
+        bool Elap6zarolasa = false;
+        Point Eelozopoz6 = new Point(0, 0);
+
+        private Bitmap Elap7 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\ijasz3.png");
+        private Point Elap7helye = new Point(30, 5);
+        bool Elap7zarolasa = false;
+        Point Eelozopoz7 = new Point(0, 0);
+
+        private Bitmap Elap8 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Foldmuves1.png");
+        private Point Elap8helye = new Point(30, 5);
+        bool Elap8zarolasa = false;
+        Point Eelozopoz8 = new Point(0, 0);
+
+        private Bitmap Elap9 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Foldmuves2.png");
+        private Point Elap9helye = new Point(30, 5);
+        bool Elap9zarolasa = false;
+        Point Eelozopoz9 = new Point(0, 0);
+
+        private Bitmap Elap10 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Sorkatona1.png");
+        private Point Elap10helye = new Point(30, 5);
+        bool Elap10zarolasa = false;
+        Point Eelozopoz10 = new Point(0, 0);
+
+        private Bitmap Elap11 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Sorkatona2.png");
+        private Point Elap11helye = new Point(30, 5);
+        bool Elap11zarolasa = false;
+        Point Eelozopoz11 = new Point(0, 0);
+
+        private Bitmap Elap12 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Zsoldos.png");
+        private Point Elap12helye = new Point(30, 5);
+        bool Elap12zarolasa = false;
+        Point Eelozopoz12 = new Point(0, 0);
+
+        private Bitmap Elap13 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Szamszerijasz1.png");
+        private Point Elap13helye = new Point(30, 5);
+        bool Elap13zarolasa = false;
+        Point Eelozopoz13 = new Point(0, 0);
+
+        private Bitmap Elap14 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\szamszerijasz2.png");
+        private Point Elap14helye = new Point(30, 5);
+        bool Elap14zarolasa = false;
+        Point Eelozopoz14 = new Point(0, 0);
+
+        private Bitmap Elap15 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Magus.png");
+        private Point Elap15helye = new Point(30, 5);
+        bool Elap15zarolasa = false;
+        Point Eelozopoz15 = new Point(0, 0);
+
+        private Bitmap Elap16 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Hajitogep1.png");
+        private Point Elap16helye = new Point(30, 5);
+        bool Elap16zarolasa = false;
+        Point Eelozopoz16 = new Point(0, 0);
+
+        private Bitmap Elap17 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Lovag.png");
+        private Point Elap17helye = new Point(30, 5);
+        bool Elap17zarolasa = false;
+        Point Eelozopoz17 = new Point(0, 0);
+
+        private Bitmap Elap18 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Katapult1.png");
+        private Point Elap18helye = new Point(30, 5);
+        bool Elap18zarolasa = false;
+        Point Eelozopoz18 = new Point(0, 0);
+
+        private Bitmap Elap19 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Katapult2.png");
+        private Point Elap19helye = new Point(30, 5);
+        bool Elap19zarolasa = false;
+        Point Eelozopoz19 = new Point(0, 0);
+
+        private Bitmap Elap20 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Ballista1.png");
+        private Point Elap20helye = new Point(30, 5);
+        bool Elap20zarolasa = false;
+        Point Eelozopoz20 = new Point(0, 0);
+
+        private Bitmap Elap21 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Ballista2.png");
+        private Point Elap21helye = new Point(30, 5);
+        bool Elap21zarolasa = false;
+        Point Eelozopoz21 = new Point(0, 0);
+
+        private Bitmap Elap22 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Lord.png");
+        private Point Elap22helye = new Point(30, 5);
+        bool Elap22zarolasa = false;
+        Point Eelozopoz22 = new Point(0, 0);
+
+        private Bitmap Elap23 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Ranger.png");
+        private Point Elap23helye = new Point(30, 5);
+        bool Elap23zarolasa = false;
+        Point Eelozopoz23 = new Point(0, 0);
+
+        private Bitmap Elap24 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\nehezlovassag1.png");
+        private Point Elap24helye = new Point(30, 5);
+        bool Elap24zarolasa = false;
+        Point Eelozopoz24 = new Point(0, 0);
+
+        private Bitmap Elap25 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\nehezlovassag2.png");
+        private Point Elap25helye = new Point(30, 5);
+        bool Elap25zarolasa = false;
+        Point Eelozopoz25 = new Point(0, 0);
 
         #region Mezők helye
         //Saját mezők
@@ -572,16 +699,265 @@ namespace Kartya
             g.DrawImage(lap25, lap25helye);
             //elozopozicio25 = lap1helye;
 
+
+/*----------------------------------------------------------------------------------------------------------------*/
+
+            //Ellenfél
+            g.DrawImage(Elap1, Elap1helye);
+            //elozopozicio1 = lap1helye;
+
+            g.DrawImage(Elap2, Elap2helye);
+            //elozopozicio2 = lap1helye;
+
+            g.DrawImage(Elap3, Elap3helye);
+            //elozopozicio3 = lap1helye;
+
+            g.DrawImage(Elap4, Elap4helye);
+            // elozopozicio4 = lap1helye;
+
+            g.DrawImage(Elap5, Elap5helye);
+            //elozopozicio5 = lap1helye;
+
+            g.DrawImage(Elap6, Elap6helye);
+            // elozopozicio6 = lap1helye;
+
+            g.DrawImage(Elap7, Elap7helye);
+            //elozopozicio7 = lap1helye;
+
+            g.DrawImage(Elap8, Elap8helye);
+            //elozopozicio8 = lap1helye;
+
+            g.DrawImage(Elap9, Elap9helye);
+            //elozopozicio9 = lap1helye;
+
+            g.DrawImage(Elap10, Elap10helye);
+            // elozopozicio10 = lap1helye;
+
+            g.DrawImage(Elap11, Elap11helye);
+            // elozopozicio11 = lap1helye;
+
+            g.DrawImage(Elap12, Elap12helye);
+            //elozopozicio12 = lap1helye;
+
+            g.DrawImage(Elap13, Elap13helye);
+            //elozopozicio13 = lap1helye;
+
+            g.DrawImage(Elap14, Elap14helye);
+            //elozopozicio14 = lap1helye;
+
+            g.DrawImage(Elap15, Elap15helye);
+            //elozopozicio15 = lap1helye;
+
+            g.DrawImage(Elap16, Elap16helye);
+            //elozopozicio16 = lap1helye;
+
+            g.DrawImage(Elap17, Elap17helye);
+            // elozopozicio17 = lap1helye;
+
+            g.DrawImage(Elap18, Elap18helye);
+            //elozopozicio18 = lap1helye;
+
+            g.DrawImage(Elap19, Elap19helye);
+            //elozopozicio19 = lap1helye;
+
+            g.DrawImage(Elap20, Elap20helye);
+            //elozopozicio20 = lap1helye;
+
+            g.DrawImage(Elap21, Elap21helye);
+            //elozopozicio21 = lap1helye;
+
+            g.DrawImage(Elap22, Elap22helye);
+            //elozopozicio22 = lap1helye;
+
+            g.DrawImage(Elap23, Elap23helye);
+            //elozopozicio23 = lap1helye;
+
+            g.DrawImage(Elap24, Elap24helye);
+            //elozopozicio24 = lap1helye;
+
+            g.DrawImage(Elap25, Elap25helye);
+            //elozopozicio25 = lap1helye;
+
             if (csakegyszer == 0)
             {
                 csakegyszer++;
                 Elsokilenckartya(paklitartalma, ref Lrandomszam);
+                
+            }
+
+            if(csakegyszer03 == 0)
+            {
+                csakegyszer03++;
+                Elsokilenckartya(paklitartalma, ref Ellenfelrandomszam);
             }
 
             Point kirako = new Point(212, 603);
+            Point kirako2 = new Point(210, 5);
 
             if (csakegyszer02 == 0)
             {
+                foreach (var szamok in Ellenfelrandomszam)
+                {
+                    //if (lepteto == 16)
+                    //  lepteto = 0;
+                    switch (szamok)
+                    {
+                        case 1:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap1helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 2:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap2helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 3:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap3helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 4:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap4helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 5:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap5helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 6:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap6helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 7:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap7helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 8:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap8helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 9:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap9helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 10:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap10helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 11:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap11helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 12:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap12helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 13:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap13helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 14:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap14helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 15:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap15helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 16:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap16helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 17:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap17helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 18:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap18helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 19:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap19helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 20:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap20helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 21:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap21helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 22:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap22helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 23:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap23helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 24:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap24helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+                        case 25:
+                            kirako2.X = kirako2.X + (Elllepteto * 70);
+                            Elap25helye = kirako2;
+                            //g.DrawImage(lap2, lap2helye);
+                            kirako2 = new Point(210, 5);
+                            break;
+
+                        default:
+                            break;
+                    }
+                    Elllepteto++;
+                }
                 foreach (var szamok in Lrandomszam)
                 {
                     //if (lepteto == 16)
@@ -746,7 +1122,7 @@ namespace Kartya
                 }
             }
 
-            //Ha paliban van lezárom
+            //Ha pakliban van lezárom
             if (lap1helye == Paklihelye)
                 lap1zarolasa = true;
 
@@ -821,6 +1197,8 @@ namespace Kartya
 
             if (lap25helye == Paklihelye)
                 lap25zarolasa = true;
+
+            
 
             csakegyszer02++;
                 //lepteto = 0;
