@@ -1492,8 +1492,9 @@ namespace Kartya
                        // EllenfelKartyaRakas(Ellenfelrandomszam, ref kivalasztott);
                         break;
                 }
+                
             }
-            Ellenfelkore = false;
+           Ellenfelkore = false;
 
 
         }
@@ -5049,7 +5050,7 @@ namespace Kartya
         {
             Random rnd = new Random();
             int szamlalo = Kihelyezettlapok.Count;
-
+            /*
             int szam = rnd.Next(1, 25);
             while (szamlalo != 0)
             {
@@ -5065,8 +5066,9 @@ namespace Kartya
                  szam = rnd.Next(1, 25);
             }
             kivalasztott = szam;
-            
+            */
 
+            kivalasztott = Kihelyezettlapok[rnd.Next(0, szamlalo - 1)];
             
         }
 
