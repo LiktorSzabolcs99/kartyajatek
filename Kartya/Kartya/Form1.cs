@@ -35,6 +35,7 @@ namespace Kartya
         Kartyatulj[] lap = new Kartyatulj[30];
         public string kategoria;
         public int osszertek = 0;
+        public int osszertek2 = 0;
         public List<int> Lrandomszam = new List<int>();
         public List<int> Ellenfelrandomszam = new List<int>();
         int kivalasztott=0;
@@ -95,6 +96,7 @@ namespace Kartya
         bool folyamatban = false;
 
         List<int> Kartyakpalyan = new List<int>();
+        List<int> EllKartyakpalyan = new List<int>();
 
         int EllKmezolepteto = 0;
         int EllTmezolepteto = 0;
@@ -109,37 +111,37 @@ namespace Kartya
         private Bitmap Alapkartya;
 
         private Bitmap KozelharcosKartya;
-        private Bitmap KozelharcosMezo = new Bitmap(@"E:\Kartya\Kesz mezo\KozMezo.png");
+        private Bitmap KozelharcosMezo = new Bitmap("KozMezo.png");
 
         private Bitmap TavolsagiKartya;
-        private Bitmap TavolsagiMezo = new Bitmap(@"E:\Kartya\Kesz mezo\TavMezo.png");
+        private Bitmap TavolsagiMezo = new Bitmap("TavMezo.png");
 
         private Bitmap OstromKartya;
-        Bitmap OstromMezo1 = new Bitmap(@"E:\Kartya\Kesz mezo\OstMezo.png");
-        Bitmap OstromMezo2 = new Bitmap(@"E:\Kartya\Kesz mezo\OstMezo.png");
+        Bitmap OstromMezo1 = new Bitmap("OstMezo.png");
+        Bitmap OstromMezo2 = new Bitmap("OstMezo.png");
 
         private Bitmap EllKozelharcosKartya;
-        private Bitmap EllKozelharcosMezo = new Bitmap(@"E:\Kartya\Kesz mezo\KozMezo.png");
+        private Bitmap EllKozelharcosMezo = new Bitmap("KozMezo.png");
 
         private Bitmap EllTavolsagiKartya;
-        private Bitmap EllTavolsagiMezo = new Bitmap(@"E:\Kartya\Kesz mezo\TavMezo.png");
+        private Bitmap EllTavolsagiMezo = new Bitmap("TavMezo.png");
 
         private Bitmap EllOstromKartya;
-        Bitmap EllOstromMezo1 = new Bitmap(@"E:\Kartya\Kesz mezo\OstMezo.png");
-        Bitmap EllOstromMezo2 = new Bitmap(@"E:\Kartya\Kesz mezo\OstMezo.png");
+        Bitmap EllOstromMezo1 = new Bitmap("OstMezo.png");
+        Bitmap EllOstromMezo2 = new Bitmap("OstMezo.png");
 
-        Bitmap Pakli = new Bitmap(@"E:\Kartya\Kesz mezo\PT.png");
-        Bitmap EllPakli = new Bitmap(@"E:\Kartya\Kesz mezo\PT.png");
+        Bitmap Pakli = new Bitmap("PT.png");
+        Bitmap EllPakli = new Bitmap("PT.png");
 
-        Bitmap Temeto = new Bitmap(@"E:\Kartya\Kesz mezo\PT.png");
-        Bitmap EllTemeto = new Bitmap(@"E:\Kartya\Kesz mezo\PT.png");
+        Bitmap Temeto = new Bitmap("PT.png");
+        Bitmap EllTemeto = new Bitmap("PT.png");
 
         private Bitmap Kartyakkezben;
         private Bitmap EllKartyakkezben;
 
-        Bitmap Esemenykartya = new Bitmap(@"E:\Kartya\Kesz mezo\IJMezo.png");
+        Bitmap Esemenykartya = new Bitmap("IJMezo.png");
 
-        private Bitmap Boostkartya = new Bitmap(@"E:\Kartya\Kesz mezo\TavBonusz.png");
+        private Bitmap Boostkartya = new Bitmap("TavBonusz.png");
         #endregion
 
 
@@ -155,131 +157,132 @@ namespace Kartya
         bool egyszer2 = false;
         bool egyszer3 = false;
         bool egyszer4 = false;
+        bool Ellszamolasegyszer = false;
 
         //Játékos Paklija
         //"Királyság" lapok
 
-        private Bitmap lap1 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Kiraly.png");
+        private Bitmap lap1 = new Bitmap("Kiraly.png");
         private Point lap1helye = new Point(1250, 605);
         bool lap1zarolasa = false;
         Point elozopoz1 = new Point(0, 0);
 
-        private Bitmap lap2 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Herceg03.png");
+        private Bitmap lap2 = new Bitmap("Herceg03.png");
         private Point lap2helye = new Point(1250, 605);
         bool lap2zarolasa = false;
         Point elozopoz2 = new Point(0, 0);
 
-        private Bitmap lap3 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Testor1.png");
+        private Bitmap lap3 = new Bitmap("Testor1.png");
         private Point lap3helye = new Point(1250, 605);
         bool lap3zarolasa = false;
         Point elozopoz3 = new Point(0, 0);
 
-        private Bitmap lap4 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Testor2.png");
+        private Bitmap lap4 = new Bitmap("Testor2.png");
         private Point lap4helye = new Point(1250, 605);
         bool lap4zarolasa = false;
         Point elozopoz4 = new Point(0, 0);
 
-        private Bitmap lap5 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\ijasz1.png");
+        private Bitmap lap5 = new Bitmap("ijasz1.png");
         private Point lap5helye = new Point(1250, 605);
         bool lap5zarolasa = false;
         Point elozopoz5 = new Point(0, 0);
 
-        private Bitmap lap6 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\ijasz2.png");
+        private Bitmap lap6 = new Bitmap("ijasz2.png");
         private Point lap6helye = new Point(1250, 605);
         bool lap6zarolasa = false;
         Point elozopoz6 = new Point(0, 0);
 
-        private Bitmap lap7 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\ijasz3.png");
+        private Bitmap lap7 = new Bitmap("ijasz3.png");
         private Point lap7helye = new Point(1250, 605);
         bool lap7zarolasa = false;
         Point elozopoz7 = new Point(0, 0);
 
-        private Bitmap lap8 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Foldmuves1.png");
+        private Bitmap lap8 = new Bitmap("Foldmuves1.png");
         private Point lap8helye = new Point(1250, 605);
         bool lap8zarolasa = false;
         Point elozopoz8 = new Point(0, 0);
 
-        private Bitmap lap9 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Foldmuves2.png");
+        private Bitmap lap9 = new Bitmap("Foldmuves2.png");
         private Point lap9helye = new Point(1250, 605);
         bool lap9zarolasa = false;
         Point elozopoz9 = new Point(0, 0);
 
-        private Bitmap lap10 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Sorkatona1.png");
+        private Bitmap lap10 = new Bitmap("Sorkatona1.png");
         private Point lap10helye = new Point(1250, 605);
         bool lap10zarolasa = false;
         Point elozopoz10 = new Point(0, 0);
 
-        private Bitmap lap11 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Sorkatona2.png");
+        private Bitmap lap11 = new Bitmap("Sorkatona2.png");
         private Point lap11helye = new Point(1250, 605);
         bool lap11zarolasa = false;
         Point elozopoz11 = new Point(0, 0);
 
-        private Bitmap lap12 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Zsoldos.png");
+        private Bitmap lap12 = new Bitmap("Zsoldos.png");
         private Point lap12helye = new Point(1250, 605);
         bool lap12zarolasa = false;
         Point elozopoz12 = new Point(0, 0);
 
-        private Bitmap lap13 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Szamszerijasz1.png");
+        private Bitmap lap13 = new Bitmap("Szamszerijasz1.png");
         private Point lap13helye = new Point(1250, 605);
         bool lap13zarolasa = false;
         Point elozopoz13 = new Point(0, 0);
 
-        private Bitmap lap14 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\szamszerijasz2.png");
+        private Bitmap lap14 = new Bitmap("szamszerijasz2.png");
         private Point lap14helye = new Point(1250, 605);
         bool lap14zarolasa = false;
         Point elozopoz14 = new Point(0, 0);
 
-        private Bitmap lap15 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Magus.png");
+        private Bitmap lap15 = new Bitmap("Magus.png");
         private Point lap15helye = new Point(1250, 605);
         bool lap15zarolasa = false;
         Point elozopoz15 = new Point(0, 0);
 
-        private Bitmap lap16 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Hajitogep1.png");
+        private Bitmap lap16 = new Bitmap("Hajitogep1.png");
         private Point lap16helye = new Point(1250, 605);
         bool lap16zarolasa = false;
         Point elozopoz16 = new Point(0, 0);
 
-        private Bitmap lap17 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Lovag.png");
+        private Bitmap lap17 = new Bitmap("Lovag.png");
         private Point lap17helye = new Point(1250, 605);
         bool lap17zarolasa = false;
         Point elozopoz17 = new Point(0, 0);
 
-        private Bitmap lap18 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Katapult1.png");
+        private Bitmap lap18 = new Bitmap("Katapult1.png");
         private Point lap18helye = new Point(1250, 605);
         bool lap18zarolasa = false;
         Point elozopoz18 = new Point(0, 0);
 
-        private Bitmap lap19 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Katapult2.png");
+        private Bitmap lap19 = new Bitmap("Katapult2.png");
         private Point lap19helye = new Point(1250, 605);
         bool lap19zarolasa = false;
         Point elozopoz19 = new Point(0, 0);
 
-        private Bitmap lap20 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Ballista1.png");
+        private Bitmap lap20 = new Bitmap("Ballista1.png");
         private Point lap20helye = new Point(1250, 605);
         bool lap20zarolasa = false;
         Point elozopoz20 = new Point(0, 0);
 
-        private Bitmap lap21 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Ballista2.png");
+        private Bitmap lap21 = new Bitmap("Ballista2.png");
         private Point lap21helye = new Point(1250, 605);
         bool lap21zarolasa = false;
         Point elozopoz21 = new Point(0, 0);
 
-        private Bitmap lap22 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Lord.png");
+        private Bitmap lap22 = new Bitmap("Lord.png");
         private Point lap22helye = new Point(1250, 605);
         bool lap22zarolasa = false;
         Point elozopoz22 = new Point(0, 0);
 
-        private Bitmap lap23 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\Ranger.png");
+        private Bitmap lap23 = new Bitmap("Ranger.png");
         private Point lap23helye = new Point(1250, 605);
         bool lap23zarolasa = false;
         Point elozopoz23 = new Point(0, 0);
 
-        private Bitmap lap24 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\nehezlovassag1.png");
+        private Bitmap lap24 = new Bitmap("nehezlovassag1.png");
         private Point lap24helye = new Point(1250, 605);
         bool lap24zarolasa = false;
         Point elozopoz24 = new Point(0, 0);
 
-        private Bitmap lap25 = new Bitmap(@"E:\Kártyák\Kártyák\Királyság frakció\Fix\Megszerkesztett\nehezlovassag2.png");
+        private Bitmap lap25 = new Bitmap("nehezlovassag2.png");
         private Point lap25helye = new Point(1250, 605);
         bool lap25zarolasa = false;
         Point elozopoz25 = new Point(0, 0);
@@ -287,127 +290,127 @@ namespace Kartya
         #endregion
 
         //Ellenfél paklia
-        private Bitmap Elap1 = new Bitmap(@"E:\Kartya\Megszerkesztett\Kiraly.png");
+        private Bitmap Elap1 = new Bitmap("Kiraly.png");
         private Point Elap1helye = new Point(30, 5);
         bool Elap1zarolasa = false;
         Point Eelozopoz1 = new Point(0, 0);
 
-        private Bitmap Elap2 = new Bitmap(@"E:\Kartya\Megszerkesztett\Herceg03.png");
+        private Bitmap Elap2 = new Bitmap("Herceg03.png");
         private Point Elap2helye = new Point(30, 5);
         bool Elap2zarolasa = false;
         Point Eelozopoz2 = new Point(0, 0);
 
-        private Bitmap Elap3 = new Bitmap(@"E:\Kartya\Megszerkesztett\Testor1.png");
+        private Bitmap Elap3 = new Bitmap("Testor1.png");
         private Point Elap3helye = new Point(30, 5);
         bool Elap3zarolasa = false;
         Point Eelozopoz3 = new Point(0, 0);
 
-        private Bitmap Elap4 = new Bitmap(@"E:\Kartya\Megszerkesztett\Testor2.png");
+        private Bitmap Elap4 = new Bitmap("Testor2.png");
         private Point Elap4helye = new Point(30, 5);
         bool Elap4zarolasa = false;
         Point Eelozopoz4 = new Point(0, 0);
 
-        private Bitmap Elap5 = new Bitmap(@"E:\Kartya\Megszerkesztett\ijasz1.png");
+        private Bitmap Elap5 = new Bitmap("ijasz1.png");
         private Point Elap5helye = new Point(30, 5);
         bool Elap5zarolasa = false;
         Point Eelozopoz5 = new Point(0, 0);
 
-        private Bitmap Elap6 = new Bitmap(@"E:\Kartya\Megszerkesztett\ijasz2.png");
+        private Bitmap Elap6 = new Bitmap("ijasz2.png");
         private Point Elap6helye = new Point(30, 5);
         bool Elap6zarolasa = false;
         Point Eelozopoz6 = new Point(0, 0);
 
-        private Bitmap Elap7 = new Bitmap(@"E:\Kartya\Megszerkesztett\ijasz3.png");
+        private Bitmap Elap7 = new Bitmap("ijasz3.png");
         private Point Elap7helye = new Point(30, 5);
         bool Elap7zarolasa = false;
         Point Eelozopoz7 = new Point(0, 0);
 
-        private Bitmap Elap8 = new Bitmap(@"E:\Kartya\Megszerkesztett\Foldmuves1.png");
+        private Bitmap Elap8 = new Bitmap("Foldmuves1.png");
         private Point Elap8helye = new Point(30, 5);
         bool Elap8zarolasa = false;
         Point Eelozopoz8 = new Point(0, 0);
 
-        private Bitmap Elap9 = new Bitmap(@"E:\Kartya\Megszerkesztett\Foldmuves2.png");
+        private Bitmap Elap9 = new Bitmap("Foldmuves2.png");
         private Point Elap9helye = new Point(30, 5);
         bool Elap9zarolasa = false;
         Point Eelozopoz9 = new Point(0, 0);
 
-        private Bitmap Elap10 = new Bitmap(@"E:\Kartya\Megszerkesztett\Sorkatona1.png");
+        private Bitmap Elap10 = new Bitmap("Sorkatona1.png");
         private Point Elap10helye = new Point(30, 5);
         bool Elap10zarolasa = false;
         Point Eelozopoz10 = new Point(0, 0);
 
-        private Bitmap Elap11 = new Bitmap(@"E:\Kartya\Megszerkesztett\Sorkatona2.png");
+        private Bitmap Elap11 = new Bitmap("Sorkatona2.png");
         private Point Elap11helye = new Point(30, 5);
         bool Elap11zarolasa = false;
         Point Eelozopoz11 = new Point(0, 0);
 
-        private Bitmap Elap12 = new Bitmap(@"E:\Kartya\Megszerkesztett\Zsoldos.png");
+        private Bitmap Elap12 = new Bitmap("Zsoldos.png");
         private Point Elap12helye = new Point(30, 5);
         bool Elap12zarolasa = false;
         Point Eelozopoz12 = new Point(0, 0);
 
-        private Bitmap Elap13 = new Bitmap(@"E:\Kartya\Megszerkesztett\Szamszerijasz1.png");
+        private Bitmap Elap13 = new Bitmap("Szamszerijasz1.png");
         private Point Elap13helye = new Point(30, 5);
         bool Elap13zarolasa = false;
         Point Eelozopoz13 = new Point(0, 0);
 
-        private Bitmap Elap14 = new Bitmap(@"E:\Kartya\Megszerkesztett\szamszerijasz2.png");
+        private Bitmap Elap14 = new Bitmap("szamszerijasz2.png");
         private Point Elap14helye = new Point(30, 5);
         bool Elap14zarolasa = false;
         Point Eelozopoz14 = new Point(0, 0);
 
-        private Bitmap Elap15 = new Bitmap(@"E:\Kartya\Megszerkesztett\Magus.png");
+        private Bitmap Elap15 = new Bitmap("Magus.png");
         private Point Elap15helye = new Point(30, 5);
         bool Elap15zarolasa = false;
         Point Eelozopoz15 = new Point(0, 0);
 
-        private Bitmap Elap16 = new Bitmap(@"E:\Kartya\Megszerkesztett\Hajitogep1.png");
+        private Bitmap Elap16 = new Bitmap("Hajitogep1.png");
         private Point Elap16helye = new Point(30, 5);
         bool Elap16zarolasa = false;
         Point Eelozopoz16 = new Point(0, 0);
 
-        private Bitmap Elap17 = new Bitmap(@"E:\Kartya\Megszerkesztett\Lovag.png");
+        private Bitmap Elap17 = new Bitmap("Lovag.png");
         private Point Elap17helye = new Point(30, 5);
         bool Elap17zarolasa = false;
         Point Eelozopoz17 = new Point(0, 0);
 
-        private Bitmap Elap18 = new Bitmap(@"E:\Kartya\Megszerkesztett\Katapult1.png");
+        private Bitmap Elap18 = new Bitmap("Katapult1.png");
         private Point Elap18helye = new Point(30, 5);
         bool Elap18zarolasa = false;
         Point Eelozopoz18 = new Point(0, 0);
 
-        private Bitmap Elap19 = new Bitmap(@"E:\Kartya\Megszerkesztett\Katapult2.png");
+        private Bitmap Elap19 = new Bitmap("Katapult2.png");
         private Point Elap19helye = new Point(30, 5);
         bool Elap19zarolasa = false;
         Point Eelozopoz19 = new Point(0, 0);
 
-        private Bitmap Elap20 = new Bitmap(@"E:\Kartya\Megszerkesztett\Ballista1.png");
+        private Bitmap Elap20 = new Bitmap("Ballista1.png");
         private Point Elap20helye = new Point(30, 5);
         bool Elap20zarolasa = false;
         Point Eelozopoz20 = new Point(0, 0);
 
-        private Bitmap Elap21 = new Bitmap(@"E:\Kartya\Megszerkesztett\Ballista2.png");
+        private Bitmap Elap21 = new Bitmap("Ballista2.png");
         private Point Elap21helye = new Point(30, 5);
         bool Elap21zarolasa = false;
         Point Eelozopoz21 = new Point(0, 0);
 
-        private Bitmap Elap22 = new Bitmap(@"E:\Kartya\Megszerkesztett\Lord.png");
+        private Bitmap Elap22 = new Bitmap("Lord.png");
         private Point Elap22helye = new Point(30, 5);
         bool Elap22zarolasa = false;
         Point Eelozopoz22 = new Point(0, 0);
 
-        private Bitmap Elap23 = new Bitmap(@"E:\Kartya\Megszerkesztett\Ranger.png");
+        private Bitmap Elap23 = new Bitmap("Ranger.png");
         private Point Elap23helye = new Point(30, 5);
         bool Elap23zarolasa = false;
         Point Eelozopoz23 = new Point(0, 0);
 
-        private Bitmap Elap24 = new Bitmap(@"E:\Kartya\Megszerkesztett\nehezlovassag1.png");
+        private Bitmap Elap24 = new Bitmap("nehezlovassag1.png");
         private Point Elap24helye = new Point(30, 5);
         bool Elap24zarolasa = false;
         Point Eelozopoz24 = new Point(0, 0);
 
-        private Bitmap Elap25 = new Bitmap(@"E:\Kartya\Megszerkesztett\nehezlovassag2.png");
+        private Bitmap Elap25 = new Bitmap("nehezlovassag2.png");
         private Point Elap25helye = new Point(30, 5);
         bool Elap25zarolasa = false;
         Point Eelozopoz25 = new Point(0, 0);
@@ -471,6 +474,21 @@ namespace Kartya
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Paint(object sender, PaintEventArgs e)
+        {
+            if(Ellszamolasegyszer)
+            {
+                Pontszamolas2(ref osszertek2, EllKartyakpalyan,ref Ellszamolasegyszer);
+                label1.Text = osszertek2.ToString();
+            }
+            Ellszamolasegyszer = false;
         }
 
         public Form1()
@@ -1316,9 +1334,10 @@ namespace Kartya
                 }
                 csakegyszerlap1 = false;
 
-                
-                
-                    
+
+
+                EllKartyakpalyan.Add(kivalasztott);
+                Ellszamolasegyszer = true;
                 
 
                 switch (kivalasztott)
@@ -4049,7 +4068,7 @@ namespace Kartya
                 lap1helye = elozopozicio1;
                 // lap2helye.X = KezdoKartyakhelye.X;
                 // lap2helye.Y = KezdoKartyakhelye.Y;
-                this.Refresh();
+               // this.Refresh();
             }
            // elozopozicio1 = new Point(-1, -1);
             kulzorlock.X = -1;
@@ -4459,7 +4478,7 @@ namespace Kartya
                 lap15helye = elozopozicio15;
                // lap2helye.X = KezdoKartyakhelye.X;
                // lap2helye.Y = KezdoKartyakhelye.Y;
-                this.Refresh();
+               this.Refresh();
             }
 
             kulzorlock.X = -1;
@@ -4674,7 +4693,7 @@ namespace Kartya
                 lap20helye = elozopozicio20;
                // lap2helye.X = KezdoKartyakhelye.X;
                // lap2helye.Y = KezdoKartyakhelye.Y;
-                this.Refresh();
+               this.Refresh();
             }
 
             kulzorlock.X = -1;
@@ -4824,7 +4843,7 @@ namespace Kartya
                 lap24helye = elozopozicio24;
                // lap2helye.X = KezdoKartyakhelye.X;
                // lap2helye.Y = KezdoKartyakhelye.Y;
-               // this.Refresh();
+                this.Refresh();
             }
 
             kulzorlock.X = -1;
@@ -4853,7 +4872,7 @@ namespace Kartya
                 lap25helye = elozopozicio25;
                // lap2helye.X = KezdoKartyakhelye.X;
                // lap2helye.Y = KezdoKartyakhelye.Y;
-                //this.Refresh();
+                this.Refresh();
             }
             
             kulzorlock.X = -1;
@@ -4998,6 +5017,124 @@ namespace Kartya
             
             //osszertek = osszertek + ertek;
         }
+        public static void Pontszamolas2(ref int osszertek, List<int> Kartyakamezon, ref bool egyszer)
+        {
+
+            int mennyiseg = Kartyakamezon.Count();
+            osszertek = 0;
+            // mennyiseg = Kartyakamezon.Count + 1;
+            while (mennyiseg != 0)
+            {
+                foreach (var k in Kartyakamezon)
+                {
+                    switch (k)
+                    {
+                        case 1:
+                            osszertek += 15;
+                            mennyiseg--;
+                            break;
+                        case 2:
+                            osszertek += 15;
+                            mennyiseg--;
+                            break;
+                        case 3:
+                            osszertek += 30;
+                            mennyiseg--;
+                            break;
+                        case 4:
+                            osszertek += 8;
+                            mennyiseg--;
+                            break;
+                        case 5:
+                            osszertek += 8;
+                            mennyiseg--;
+                            break;
+                        case 6:
+                            osszertek += 15;
+                            mennyiseg--;
+                            break;
+                        case 7:
+                            osszertek += 4;
+                            mennyiseg--;
+                            break;
+                        case 8:
+                            osszertek += 4;
+                            mennyiseg--;
+                            break;
+                        case 9:
+                            osszertek += 4;
+                            mennyiseg--;
+                            break;
+                        case 10:
+                            osszertek += 2;
+                            mennyiseg--;
+                            break;
+                        case 11:
+                            osszertek += 2;
+                            mennyiseg--;
+                            break;
+                        case 12:
+                            osszertek += 6;
+                            mennyiseg--;
+                            break;
+                        case 13:
+                            osszertek += 6;
+                            mennyiseg--;
+                            break;
+                        case 14:
+                            osszertek += 8;
+                            mennyiseg--;
+                            break;
+                        case 15:
+                            //osszertek += 0;
+                            mennyiseg--;
+                            break;
+                        case 16:
+                            osszertek += 10;
+                            mennyiseg--;
+                            break;
+                        case 17:
+                            osszertek += 3;
+                            mennyiseg--;
+                            break;
+                        case 18:
+                            osszertek += 3;
+                            mennyiseg--;
+                            break;
+                        case 19:
+                            osszertek += 3;
+                            mennyiseg--;
+                            break;
+                        case 20:
+                            osszertek += 15;
+                            mennyiseg--;
+                            break;
+                        case 21:
+                            osszertek += 6;
+                            mennyiseg--;
+                            break;
+                        case 22:
+                            osszertek += 10;
+                            mennyiseg--;
+                            break;
+                        case 23:
+                            osszertek += 4;
+                            mennyiseg--;
+                            break;
+                        case 24:
+                            osszertek += 4;
+                            mennyiseg--;
+                            break;
+                        case 25:
+                            osszertek += 4;
+                            mennyiseg--;
+                            break;
+                    }
+                }
+            }
+
+            //osszertek = osszertek + ertek;
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -5006,6 +5143,7 @@ namespace Kartya
 
         private void label2_Paint(object sender, PaintEventArgs e)
         {
+            
             
             if (egyszer1)
             {
@@ -5145,7 +5283,11 @@ namespace Kartya
             Tmezolepteto = 0;
             Omezo1lepteto = 0;
             Omzeo2lepteto = 0;
+            EllKmezolepteto = 0;
+            EllTmezolepteto = 0;
             egyszer1 = true;
+            Ellszamolasegyszer = true;
+
             foreach (var k in Kartyakpalyan)
             {
                 switch (k)
@@ -5227,13 +5369,105 @@ namespace Kartya
                         break;
                 }
             }
+            //Ellenfél
+            if(osszertek2 > osszertek || osszertek2 == osszertek)
+            foreach (var k in EllKartyakpalyan)
+            {
+                switch (k)
+                {
+                    case 1:
+                        Elap1helye = EllTemetohelye;
+                        break;
+                    case 2:
+                        Elap2helye = EllTemetohelye;
+                        break;
+                    case 3:
+                        Elap3helye = EllTemetohelye;
+                        break;
+                    case 4:
+                        Elap4helye = EllTemetohelye;
+                        break;
+                    case 5:
+                        Elap5helye = EllTemetohelye;
+                        break;
+                    case 6:
+                        Elap6helye = EllTemetohelye;
+                        break;
+                    case 7:
+                        Elap7helye = EllTemetohelye;
+                        break;
+                    case 8:
+                        Elap8helye = EllTemetohelye;
+                        break;
+                    case 9:
+                        Elap9helye = EllTemetohelye;
+                        break;
+                    case 10:
+                        Elap10helye = EllTemetohelye;
+                        break;
+                    case 11:
+                        Elap11helye = EllTemetohelye;
+                        break;
+                    case 12:
+                        Elap12helye = EllTemetohelye;
+                        break;
+                    case 13:
+                        Elap13helye = EllTemetohelye;
+                        break;
+                    case 14:
+                        Elap14helye = EllTemetohelye;
+                        break;
+                    case 15:
+                        Elap15helye = EllTemetohelye;
+                        break;
+                    case 16:
+                        Elap16helye = EllTemetohelye;
+                        break;
+                    case 17:
+                        Elap17helye = EllTemetohelye;
+                        break;
+                    case 18:
+                        Elap18helye = EllTemetohelye;
+                        break;
+                    case 19:
+                        Elap19helye = EllTemetohelye;
+                        break;
+                    case 20:
+                        Elap20helye = EllTemetohelye;
+                        break;
+                    case 21:
+                        Elap21helye = EllTemetohelye;
+                        break;
+                    case 22:
+                        Elap22helye = EllTemetohelye;
+                        break;
+                    case 23:
+                        Elap23helye = EllTemetohelye;
+                        break;
+                    case 24:
+                        Elap24helye = EllTemetohelye;
+                        break;
+                    case 25:
+                        Elap25helye = EllTemetohelye;
+                        break;
+                }
+            }
+
             Kartyakpalyan.Clear();
+            EllKartyakpalyan.Clear();
             if (egyszer1)
             {
                 Pontszamolas(ref osszertek, Kartyakpalyan, ref egyszer1);
                 label2.Text = osszertek.ToString();
             }
             egyszer1 = false;
+
+            if (Ellszamolasegyszer)
+            {
+                Pontszamolas2(ref osszertek2, EllKartyakpalyan, ref Ellszamolasegyszer);
+                label1.Text = osszertek2.ToString();
+            }
+            Ellszamolasegyszer = false;
             this.Refresh();
         }
     }
