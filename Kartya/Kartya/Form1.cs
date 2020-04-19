@@ -30,11 +30,13 @@ namespace Kartya
     public partial class Form1 : Form
     {
         #region Valtozok/logikai
+        bool Ellenfelkore = false;
         Kartyatulj[] lap = new Kartyatulj[30];
         public string kategoria;
         public int osszertek = 0;
         public List<int> Lrandomszam = new List<int>();
         public List<int> Ellenfelrandomszam = new List<int>();
+        int kivalasztott=0;
         int[] paklitartalma = new int[25] {1,2,3,4,5,6,7,8,9,10,11,12,13,
                                                14,15,16,17,18,19,20,21,22,23,24,25 };
 
@@ -82,7 +84,7 @@ namespace Kartya
         int csakegyszer = 0;
         int csakegyszer02 = 0;
         int csakegyszer03 = 0;
-        int csakegyszerlap1 = 0;
+        bool csakegyszerlap1 = false;
         int Index = 0;
         bool Egerfelengedve = false;
         bool KozKartyazarolas = false;
@@ -92,6 +94,9 @@ namespace Kartya
         bool folyamatban = false;
 
         List<int> Kartyakpalyan = new List<int>();
+
+        int EllKmezolepteto = 0;
+        int EllTmezolepteto = 0;
 
         int Kmezolepteto = 0;
         int Tmezolepteto = 0;
@@ -791,6 +796,7 @@ namespace Kartya
                 Elsokilenckartya(paklitartalma, ref Ellenfelrandomszam);
             }
 
+
             Point kirako = new Point(212, 603);
             Point kirako2 = new Point(210, 5);
 
@@ -1201,80 +1207,296 @@ namespace Kartya
             
 
             csakegyszer02++;
-                //lepteto = 0;
+            //lepteto = 0;
 
-                //g.DrawImage(lap2, lap2helye);
+            //g.DrawImage(lap2, lap2helye);
 
-                //g.DrawImage(lap1, lap1helye.X,lap1helye.Y);
+            //g.DrawImage(lap1, lap1helye.X,lap1helye.Y);
 
 
-                //Kártyák kirajzolása
+            //Kártyák kirajzolása
 
-                //Ezt a feltételt azért csináltam, hogy egyszer rajzolja ki az összes kártyát(most ugye "30"db kártya van ezért 
-                //"lap" nevezetű tömb az 30 elemű,mert egy pakliban gondolkodtam először),ha eléri az "f" nevű változo egyszer a lap.length-et
-                //tehát a 30-at, akkor nem kell újra kirajzolni az összes kártyát, felesleges ugy sincsenek mozdítva
-                // if (f != lap.Length)
-                /*------------------------------------------------------------------------*/
+            //Ezt a feltételt azért csináltam, hogy egyszer rajzolja ki az összes kártyát(most ugye "30"db kártya van ezért 
+            //"lap" nevezetű tömb az 30 elemű,mert egy pakliban gondolkodtam először),ha eléri az "f" nevű változo egyszer a lap.length-et
+            //tehát a 30-at, akkor nem kell újra kirajzolni az összes kártyát, felesleges ugy sincsenek mozdítva
+            // if (f != lap.Length)
+            /*------------------------------------------------------------------------*/
+
+            //Ezzen a cikluson rajzolom ki lap.length-nyi (tehát 12 lapot,mivel annyi van beleírva a txt-fájlba) kártyákat
+            //  for (int i = 1; i < lap.Length; i++)
+            // {
+            // f++;
+            //Ezt gondolom érti ha a kategoria = "Ostrom" amit a fájba írok és onnan is kapja a lap[i].kategoria az értéket
+            //akkor az adott "i"-dik elemű kártyának a pozicióját beállítom a KezdoKartyahelyre(A fehérmező/sáv alúl) bal oldaról kezdje
+            //felsorolni/kipakolni a lapokat
+
+            //g.DrawImage(OstromKartya, Ostromkartyahelye);
+            //g.DrawImage(OstromKartya, Ideiglenespoz);
+            //  if (lap[i].kategoria == "Ostrom")
+            //  {
+            //lap[i].aktualispozX = KezdoKartyakhelye.X + (a * 70);
+            //lap[i].aktualispozY = KezdoKartyakhelye.Y;
+            //Ezt azért csináltam mert ha az elsőt lapot kihelyeztem a fehér mezőre akkor a következőt nem rá
+            //hanem utána szeretném rakni. Az "a" változo igazából azt szeretné jelképzni hogy hányadik éppen vagy hányadiknál tartunk
+            // ezért ha az 1-re változik akkor alapból a következőt is ráhelyezné de igy (a * 70) 70-el eltoltam jobbra 
+            // a következőt 140-el azt következőt pedig 210-el stb....
+            // g.DrawImage(OstromKartya, lap[i].aktualispozX, lap[i].aktualispozY);
+            //    a++;
+
+            //Ezt azért írtam ide hogy fejebb a lap[i] elem rögzitett poziciója az Kezdokártya lenne csak rajzolásnál
+            //tolja el, de nem jegyzi meg, ezért raktam ide ezt ha már eltolja akkor lap[i]-ben is nyomja el
+            // lap[i].aktualispozX = lap[i].aktualispozX + (a * 70);
+            // }
+            //Amit fentebb csinálok azt itt is lemásoltam
+            // if (lap[i].kategoria == "Tavolsagi")
+            // {
+            //lap[i].aktualispozX = KezdoKartyakhelye.X + (a * 70);
+            //lap[i].aktualispozY = KezdoKartyakhelye.Y;
+
+            // g.DrawImage(TavolsagiKartya, lap[i].aktualispozX, lap[i].aktualispozY);
+            //    a++;
+
+            // lap[i].aktualispozX = lap[i].aktualispozX + (a * 70);
+
+            //   }
+            //Valamit itt is csak közelharcosra
+            // if (lap[i].kategoria == "Kozelharcos")
+            //  {
+            // lap[i].aktualispozX = KezdoKartyakhelye.X + (a * 70);
+            // lap[i].aktualispozY = KezdoKartyakhelye.Y;
+
+            // g.DrawImage(KozelharcosKartya, lap[i].aktualispozX , lap[i].aktualispozY);
+            //a++;
+
+            //lap[i].aktualispozX = lap[i].aktualispozX + (a * 70);
+            //  }
+            // }
+
+            /*-------------------------------------------------------------------------------------------- */
+
+            //Ez a kiválasztott kártyát szeretné újrarajzolni
+
+            //g.DrawImage(KozelharcosKartya, lap[Index].aktualispozX, lap[Index].aktualispozY);
+
+
+            /*------------------------------------------------------------------------*/
+
+            /*
+                        private Point EllBoostkartyahelye1 = new Point(210, 215);
+                    private Point EllBoostkartyahelye2 = new Point(210, 110);
+
+                    private Point EllKartyakkezbenhelye = new Point(210, 5);
+
+                    private Point EllKozelharcosmezohelye = new Point(285, 215);
+                    // private Point EllKozelharcoskartyahelye = new Point(100, 100);
+
+                    private Point EllTavolsagimezohelye = new Point(285, 110);
+                    // private Point EllTavolsagikartyahelye = new Point(100, 250);
+
+                    private Point EllOstrommezohelye1 = new Point(5, 110);
+                    private Point EllOstrommezohelye2 = new Point(1160, 110);
+                    // private Point EllOstromkartyahelye = new Point(100, 380);
+
+                    private Point EllPaklihelye = new Point(30, 5);
+                    private Point EllTemetohelye = new Point(100, 5);
+                    */
+            if (Ellenfelkore)
+            {
+                csakegyszerlap1 = true;
+                if (csakegyszerlap1)
                 {
-                    //Ezzen a cikluson rajzolom ki lap.length-nyi (tehát 12 lapot,mivel annyi van beleírva a txt-fájlba) kártyákat
-                    //  for (int i = 1; i < lap.Length; i++)
-                    // {
-                    // f++;
-                    //Ezt gondolom érti ha a kategoria = "Ostrom" amit a fájba írok és onnan is kapja a lap[i].kategoria az értéket
-                    //akkor az adott "i"-dik elemű kártyának a pozicióját beállítom a KezdoKartyahelyre(A fehérmező/sáv alúl) bal oldaról kezdje
-                    //felsorolni/kipakolni a lapokat
-
-                    //g.DrawImage(OstromKartya, Ostromkartyahelye);
-                    //g.DrawImage(OstromKartya, Ideiglenespoz);
-                    //  if (lap[i].kategoria == "Ostrom")
-                    //  {
-                    //lap[i].aktualispozX = KezdoKartyakhelye.X + (a * 70);
-                    //lap[i].aktualispozY = KezdoKartyakhelye.Y;
-                    //Ezt azért csináltam mert ha az elsőt lapot kihelyeztem a fehér mezőre akkor a következőt nem rá
-                    //hanem utána szeretném rakni. Az "a" változo igazából azt szeretné jelképzni hogy hányadik éppen vagy hányadiknál tartunk
-                    // ezért ha az 1-re változik akkor alapból a következőt is ráhelyezné de igy (a * 70) 70-el eltoltam jobbra 
-                    // a következőt 140-el azt következőt pedig 210-el stb....
-                    // g.DrawImage(OstromKartya, lap[i].aktualispozX, lap[i].aktualispozY);
-                    //    a++;
-
-                    //Ezt azért írtam ide hogy fejebb a lap[i] elem rögzitett poziciója az Kezdokártya lenne csak rajzolásnál
-                    //tolja el, de nem jegyzi meg, ezért raktam ide ezt ha már eltolja akkor lap[i]-ben is nyomja el
-                    // lap[i].aktualispozX = lap[i].aktualispozX + (a * 70);
-                    // }
-                    //Amit fentebb csinálok azt itt is lemásoltam
-                    // if (lap[i].kategoria == "Tavolsagi")
-                    // {
-                    //lap[i].aktualispozX = KezdoKartyakhelye.X + (a * 70);
-                    //lap[i].aktualispozY = KezdoKartyakhelye.Y;
-
-                    // g.DrawImage(TavolsagiKartya, lap[i].aktualispozX, lap[i].aktualispozY);
-                    //    a++;
-
-                    // lap[i].aktualispozX = lap[i].aktualispozX + (a * 70);
-
-                    //   }
-                    //Valamit itt is csak közelharcosra
-                    // if (lap[i].kategoria == "Kozelharcos")
-                    //  {
-                    // lap[i].aktualispozX = KezdoKartyakhelye.X + (a * 70);
-                    // lap[i].aktualispozY = KezdoKartyakhelye.Y;
-
-                    // g.DrawImage(KozelharcosKartya, lap[i].aktualispozX , lap[i].aktualispozY);
-                    //a++;
-
-                    //lap[i].aktualispozX = lap[i].aktualispozX + (a * 70);
-                    //  }
-                    // }
+                    EllenfelKartyaRakas(Ellenfelrandomszam, ref kivalasztott);
                 }
-                /*-------------------------------------------------------------------------------------------- */
-
-                //Ez a kiválasztott kártyát szeretné újrarajzolni
-
-                //g.DrawImage(KozelharcosKartya, lap[Index].aktualispozX, lap[Index].aktualispozY);
+                csakegyszerlap1 = false;
 
 
-                /*------------------------------------------------------------------------*/
+
+                switch (kivalasztott)
+                {
+                    case 1:
+                        Elap1helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap1helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 2:
+                        Elap2helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap2helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 3:
+                        //kozelharcos/tav
+                        Elap3helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap3helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 4:
+                        Elap4helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap4helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 5:
+                        Elap5helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap5helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 6:
+                        Elap6helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap6helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 7:
+                        Elap7helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap7helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 8:
+                        Elap8helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap8helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 9:
+                        Elap9helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap9helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+                        
+                    case 10:
+                        Elap10helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
+                        Elap10helye.Y = EllTavolsagimezohelye.Y + 2;
+                        this.Refresh();
+                        EllTmezolepteto++;
+                        break;
+
+                    case 11:
+                        Elap11helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
+                        Elap11helye.Y = EllTavolsagimezohelye.Y + 2;
+                        this.Refresh();
+                        EllTmezolepteto++;
+                        break;
+
+                    case 12:
+                        Elap12helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
+                        Elap12helye.Y = EllTavolsagimezohelye.Y + 2;
+                        this.Refresh();
+                        EllTmezolepteto++;
+                        break;
+
+                    case 13:
+                        Elap13helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
+                        Elap13helye.Y = EllTavolsagimezohelye.Y + 2;
+                        this.Refresh();
+                        break;
+
+                    case 14:
+                        Elap14helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap14helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 15:
+                        Elap15helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
+                        Elap15helye.Y = EllTavolsagimezohelye.Y + 2;
+                        this.Refresh();
+                        EllTmezolepteto++;
+                        break;
+
+                    case 16:
+                        Elap16helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
+                        Elap16helye.Y = EllTavolsagimezohelye.Y + 2;
+                        this.Refresh();
+                        EllTmezolepteto++;
+                        break;
+
+                    case 17:
+                        Elap17helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap17helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 18:
+                        Elap18helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap18helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 19:
+                        Elap19helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap19helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 20:
+                        Elap20helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap20helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 21:
+                        Elap21helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap21helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 22:
+                        Elap22helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
+                        Elap22helye.Y = EllTavolsagimezohelye.Y + 2;
+                        this.Refresh();
+                        EllTmezolepteto++;
+                        break;
+
+                    case 23:
+                        Elap23helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap23helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 24:
+                        Elap24helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap24helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    case 25:
+                        Elap25helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                        Elap25helye.Y = EllKozelharcosmezohelye.Y + 2;
+                        this.Refresh();
+                        EllKmezolepteto++;
+                        break;
+
+                    default:
+                       // EllenfelKartyaRakas(Ellenfelrandomszam, ref kivalasztott);
+                        break;
+                }
             }
+            Ellenfelkore = false;
+
+
+        }
         
         
 
@@ -1304,11 +1526,13 @@ namespace Kartya
                 if (kartyahelye.X + kartya.Width >= mezo1helye.X && kartyahelye.X <= mezo1helye.X + mezo1.Width
                    && kartyahelye.Y + kartya.Height >= mezo1helye.Y && kartyahelye.Y <= mezo1helye.Y + mezo1.Height)
                 {
-                    //Ha bent van akkor és csak is akkor "zárolja"-le a kártyát a mezőre ha az "Mouse up"-olva 
-                    //tehát az egeret felengedtük
+                //Ha bent van akkor és csak is akkor "zárolja"-le a kártyát a mezőre ha az "Mouse up"-olva 
+                //tehát az egeret felengedtük
 
-                    //Ezt lejebb oldottam meg 
-                    return true;
+                //Ezt lejebb oldottam meg 
+                Ellenfelkore = true;
+                return true;
+                    
 
                 }
 
@@ -3810,6 +4034,7 @@ namespace Kartya
                     Kmezolepteto++;
                     egyszer1 = true;
                     Kartyakpalyan.Add(2);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4555,6 +4780,7 @@ namespace Kartya
                     Kmezolepteto++;
                     egyszer1 = true;
                     Kartyakpalyan.Add(25);
+                    Ellenfelkore = true;
                 }
             }
             else
@@ -4818,6 +5044,30 @@ namespace Kartya
                 }
 
             }
+        }
+        public static void EllenfelKartyaRakas(List<int> Kihelyezettlapok, ref int kivalasztott)
+        {
+            Random rnd = new Random();
+            int szamlalo = Kihelyezettlapok.Count;
+
+            int szam = rnd.Next(1, 25);
+            while (szamlalo != 0)
+            {
+                if (Kihelyezettlapok.Contains(szam))
+                {
+                    Kihelyezettlapok.Remove(szam);
+                    szamlalo--;
+                    if (szamlalo == 0)
+                        break;
+                     szam = rnd.Next(1, 25);
+
+                }
+                 szam = rnd.Next(1, 25);
+            }
+            kivalasztott = szam;
+            
+
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
