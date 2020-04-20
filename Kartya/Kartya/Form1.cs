@@ -1774,27 +1774,18 @@ namespace Kartya
                     aktualiskulzorpozicio = Control.MousePosition;
 
                     
-                    //és nyomjuk a balgombot
+                   
                     if (e.Button == System.Windows.Forms.MouseButtons.Left)
                     {
-                        //ezeket régen használtam
-                        //TavKartyazarolas = true;
-                        //OstKartyazarolas = true;
-                        //akkor itt egyszer lelockoljuk a kulzort hogy mozgatásnál nem mozduljon el
+                        
                         if (kulzorlock.X == -1 && kulzorlock.Y == -1)
                         {
-                            //Ezt még nekem is alaposan át kell gondolnom hogy mi is történik itt
-                            //Mivel itt akadtam el, de ezt levélben már kifejtettem
-                            
-
+           
                             kulzorlock.X = aktualiskulzorpozicio.X - lap2helye.X;
                             kulzorlock.Y = aktualiskulzorpozicio.Y - lap2helye.Y;
 
-                            //Kulzorlock legyen = a kulzorlock - kártyahelye
-
                         }
-                        //kicsit feljebb ugye le lockoltuk a kulzort tehát ha ide belép akkor a kiválasztott("Index")
-                        //lapnak a pozicióját módosítom és majd g.DrawImage-ben újra írom, de itt már ugye Frissítem szóval nem értem
+                       
                         else
                         {
                             lap2helye.X = MousePosition.X - kulzorlock.X;
@@ -1802,7 +1793,6 @@ namespace Kartya
 
                             this.Refresh();
                         }
-
 
                     }
                 }
@@ -4854,15 +4844,15 @@ namespace Kartya
             //lap23
             if (Kartya_a_mezobe_van_helyezve(lap23helye, Tavolsagimezohelye, TavolsagiMezo, lap23zarolasa, Alapkartya))
             {
-                byte hh = 23;
-                if (!Tavmezoben.Contains(hh))
+                
+                if (!Tavmezoben.Contains(23))
                 {
                     //Manuálisan megadom melyik pozicióba legyen lezárva a kártyalap
                     lap23helye.X = Tavolsagimezohelye.X + (Tmezolepteto * 90);
                     lap23helye.Y = Tavolsagimezohelye.Y + 2;
                     this.Refresh();
                     lap23zarolasa = true;
-                    Tavmezoben.Add(hh);
+                    Tavmezoben.Add(23);
                     Tmezolepteto++;
                     egyszer2 = true;
                     Kartyakpalyan.Add(23);
@@ -5356,7 +5346,7 @@ namespace Kartya
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(button1.Text == "Vesztetél")
+            if(button1.Text == "Vesztettél")
             {
                 Close();
             }
@@ -5381,7 +5371,7 @@ namespace Kartya
             if(Ellenfelfordulogyoz == 2)
             {
                 Fordulo2 = new Bitmap("NincsFordulo.png");
-                button1.Text = "Vesztetél";
+                button1.Text = "Vesztettél";
             }
             else if (Jatekosfordulogy == 2)
             {
