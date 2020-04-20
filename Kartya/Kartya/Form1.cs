@@ -29,8 +29,25 @@ namespace Kartya
 
     public partial class Form1 : Form
     {
+        int Jatekosfordulogy = 0;
+        int Ellenfelfordulogyoz = 0;
+        public Bitmap Fordulo = new Bitmap("VanFordulo.png");
+        public Bitmap Fordulo2 = new Bitmap("VanFordulo.png");
+
+        public Bitmap EllFordulo = new Bitmap("VanFordulo.png");
+        public Bitmap EllFordulo2 = new Bitmap("VanFordulo.png");
+
+        private Point Fordulohelye = new Point(300, 320);
+        private Point Fordulohelye2 = new Point(230, 320);
+
+        private Point EllFordulohelye = new Point(1010, 320);
+        private Point EllFordulohelye2 = new Point(1080, 320);
+
+
         #region Valtozok/logikai
         bool Ellenfelkore = false;
+        bool Jatekospassz = false;
+        bool Ellenfelpassz = false;
         Random rnd = new Random();
         Kartyatulj[] lap = new Kartyatulj[30];
         public string kategoria;
@@ -38,6 +55,7 @@ namespace Kartya
         public int osszertek2 = 0;
         public List<int> Lrandomszam = new List<int>();
         public List<int> Ellenfelrandomszam = new List<int>();
+        public List<int> EllKartyakakezben = new List<int>();
         int kivalasztott=0;
         int[] paklitartalma = new int[25] {1,2,3,4,5,6,7,8,9,10,11,12,13,
                                                14,15,16,17,18,19,20,21,22,23,24,25 };
@@ -545,8 +563,11 @@ namespace Kartya
 
 
             EllOstromKartya = new Bitmap(65, 95);
- 
 
+            //Fordulo = new Bitmap(65, 65);
+            //Fordulo2 = new Bitmap(65, 65);
+            //EllFordulo = new Bitmap(65, 65);
+            //EllFordulo2 = new Bitmap(65, 65);
 
             #endregion
         }
@@ -559,6 +580,8 @@ namespace Kartya
         Rectangle kartyalap = new Rectangle(0, 0, 65, 95);
         Rectangle esemenymezo = new Rectangle(0, 0, 100, 200);
         Rectangle boostlap = new Rectangle(0, 0, 70, 100);
+        Rectangle fordulomezo = new Rectangle(0, 0, 65, 65);
+
         #endregion
 
 
@@ -610,7 +633,25 @@ namespace Kartya
             {
                 g.FillRectangle(Brushes.White, mezo1);
             }
-            
+            /*
+            using (var g = Graphics.FromImage(Fordulo))
+            {
+                g.FillRectangle(Brushes.White, fordulomezo);
+            }
+            using (var g = Graphics.FromImage(Fordulo2))
+            {
+                g.FillRectangle(Brushes.White, fordulomezo);
+            }
+            using (var g = Graphics.FromImage(EllFordulo))
+            {
+                g.FillRectangle(Brushes.White, fordulomezo);
+            }
+            using (var g = Graphics.FromImage(EllFordulo2))
+            {
+                g.FillRectangle(Brushes.White, fordulomezo);
+            }
+            */
+
         }
         #endregion
 
@@ -627,6 +668,11 @@ namespace Kartya
 
             #region Mezők kirajzolása 
             mezorajz();
+            g.DrawImage(Fordulo, Fordulohelye);
+            g.DrawImage(Fordulo2, Fordulohelye2);
+            g.DrawImage(EllFordulo, EllFordulohelye);
+            g.DrawImage(EllFordulo2, EllFordulohelye2);
+
             g.DrawImage(Boostkartya, Boostkartyahelye1);
             g.DrawImage(Boostkartya, Boostkartyahelye2);
             g.DrawImage(Boostkartya, EllBoostkartyahelye1);
@@ -1327,16 +1373,20 @@ namespace Kartya
             if (Ellenfelkore)
             {
                 
-                csakegyszerlap1 = true;
-                if (csakegyszerlap1)
-                {
-                    EllenfelKartyaRakas(Ellenfelrandomszam, ref kivalasztott);
-                }
-                csakegyszerlap1 = false;
+                
+                    csakegyszerlap1 = true;
+                    if (csakegyszerlap1)
+                    {
+                        EllenfelKartyaRakas(Ellenfelrandomszam, ref kivalasztott);
+                    }
+                    csakegyszerlap1 = false;
+
+                
 
 
 
                 EllKartyakpalyan.Add(kivalasztott);
+                EllKartyakakezben = Ellenfelrandomszam;
                 Ellszamolasegyszer = true;
                 
 
@@ -1348,6 +1398,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 2:
@@ -1356,6 +1407,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 3:
@@ -1365,6 +1417,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 4:
@@ -1373,6 +1426,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 5:
@@ -1381,6 +1435,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 6:
@@ -1389,6 +1444,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 7:
@@ -1397,6 +1453,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 8:
@@ -1405,6 +1462,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 9:
@@ -1413,6 +1471,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
                         
                     case 10:
@@ -1421,6 +1480,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllTmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 11:
@@ -1429,6 +1489,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllTmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 12:
@@ -1437,6 +1498,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllTmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 13:
@@ -1444,6 +1506,8 @@ namespace Kartya
                         Elap13helye.Y = EllTavolsagimezohelye.Y + 2;
                         Ellenfelkore = false;
                         this.Refresh();
+                        EllTmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 14:
@@ -1452,6 +1516,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 15:
@@ -1460,6 +1525,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllTmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 16:
@@ -1468,6 +1534,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllTmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 17:
@@ -1476,6 +1543,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 18:
@@ -1484,6 +1552,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 19:
@@ -1492,6 +1561,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 20:
@@ -1500,6 +1570,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 21:
@@ -1508,6 +1579,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 22:
@@ -1516,6 +1588,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllTmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 23:
@@ -1524,6 +1597,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 24:
@@ -1532,6 +1606,7 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     case 25:
@@ -1540,12 +1615,14 @@ namespace Kartya
                         Ellenfelkore = false;
                         this.Refresh();
                         EllKmezolepteto++;
+                        EllKartyakakezben.Remove(kivalasztott);
                         break;
 
                     default:
                        // EllenfelKartyaRakas(Ellenfelrandomszam, ref kivalasztott);
                         break;
                 }
+                
                 
             }
            //Ellenfelkore = false;
@@ -5279,6 +5356,355 @@ namespace Kartya
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(button1.Text == "Vesztetél")
+            {
+                Close();
+            }
+            if (button1.Text == "Győztél")
+            {
+                Close();
+            }
+
+
+
+            if (osszertek2 > osszertek)
+            {
+                Ellenfelfordulogyoz++;
+                Fordulo = new Bitmap("NincsFordulo.png");
+            }
+            else
+            {
+                Jatekosfordulogy++;
+                EllFordulo = new Bitmap("NincsFordulo.png");
+            }
+
+            if(Ellenfelfordulogyoz == 2)
+            {
+                Fordulo2 = new Bitmap("NincsFordulo.png");
+                button1.Text = "Vesztetél";
+            }
+            else if (Jatekosfordulogy == 2)
+            {
+                EllFordulo2 = new Bitmap("NincsFordulo.png");
+                button1.Text = "Győztél";
+            }
+
+            Ellenfelpassz = true;
+            Jatekospassz = true;
+            
+
+            while (osszertek2 > osszertek || EllKartyakakezben.Count != 0)
+            {
+                if (osszertek2 > osszertek)
+                    break;
+                EllenfelKartyaRakas(Ellenfelrandomszam, ref kivalasztott);
+
+                EllKartyakpalyan.Add(kivalasztott);
+                if (EllKartyakakezben.Count != 0)
+                {
+                    switch (kivalasztott)
+                    {
+
+                        case 1:
+                            Elap1helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap1helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 15;
+                            kivalasztott = 0;
+                            break;
+
+                        case 2:
+                            Elap2helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap2helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 15;
+                            kivalasztott = 0;
+                            break;
+
+                        case 3:
+                            //kozelharcos/tav
+                            Elap3helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap3helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 30;
+                            kivalasztott = 0;
+                            break;
+
+                        case 4:
+                            Elap4helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap4helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 8;
+                            kivalasztott = 0;
+                            break;
+
+                        case 5:
+                            Elap5helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap5helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 8;
+                            kivalasztott = 0;
+                            break;
+
+                        case 6:
+                            Elap6helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap6helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 15;
+                            kivalasztott = 0;
+                            break;
+
+                        case 7:
+                            Elap7helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap7helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 4;
+                            kivalasztott = 0;
+                            break;
+
+                        case 8:
+                            Elap8helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap8helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 4;
+                            kivalasztott = 0;
+                            break;
+
+                        case 9:
+                            Elap9helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap9helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 4;
+                            kivalasztott = 0;
+                            break;
+
+                        case 10:
+                            Elap10helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
+                            Elap10helye.Y = EllTavolsagimezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllTmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 2;
+                            kivalasztott = 0;
+                            break;
+
+                        case 11:
+                            Elap11helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
+                            Elap11helye.Y = EllTavolsagimezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllTmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 2;
+                            kivalasztott = 0;
+                            break;
+
+                        case 12:
+                            Elap12helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
+                            Elap12helye.Y = EllTavolsagimezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllTmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 6;
+                            kivalasztott = 0;
+                            break;
+
+                        case 13:
+                            Elap13helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
+                            Elap13helye.Y = EllTavolsagimezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllTmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 6;
+                            kivalasztott = 0;
+                            break;
+
+                        case 14:
+                            Elap14helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap14helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 8;
+                            kivalasztott = 0;
+                            break;
+
+                        case 15:
+                            Elap15helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
+                            Elap15helye.Y = EllTavolsagimezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllTmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            kivalasztott = 0;
+                            break;
+
+                        case 16:
+                            Elap16helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
+                            Elap16helye.Y = EllTavolsagimezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllTmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 10;
+                            kivalasztott = 0;
+                            break;
+
+                        case 17:
+                            Elap17helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap17helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 3;
+                            kivalasztott = 0;
+                            break;
+
+                        case 18:
+                            Elap18helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap18helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 3;
+                            kivalasztott = 0;
+                            break;
+
+                        case 19:
+                            Elap19helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap19helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 3;
+                            kivalasztott = 0;
+                            break;
+
+                        case 20:
+                            Elap20helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap20helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 15;
+                            kivalasztott = 0;
+                            break;
+
+                        case 21:
+                            Elap21helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap21helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 6;
+                            kivalasztott = 0;
+                            break;
+
+                        case 22:
+                            Elap22helye.X = EllTavolsagimezohelye.X + (EllTmezolepteto * 75);
+                            Elap22helye.Y = EllTavolsagimezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllTmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 10;
+                            kivalasztott = 0;
+                            break;
+
+                        case 23:
+                            Elap23helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap23helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 4;
+                            kivalasztott = 0;
+                            break;
+
+                        case 24:
+                            Elap24helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap24helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 4;
+                            kivalasztott = 0;
+                            break;
+
+                        case 25:
+                            Elap25helye.X = EllKozelharcosmezohelye.X + (EllKmezolepteto * 75);
+                            Elap25helye.Y = EllKozelharcosmezohelye.Y + 2;
+                            Ellenfelkore = false;
+                            this.Refresh();
+                            EllKmezolepteto++;
+                            EllKartyakakezben.Remove(kivalasztott);
+                            osszertek2 += 4;
+                            kivalasztott = 0;
+                            break;
+
+                        default:
+                            // EllenfelKartyaRakas(Ellenfelrandomszam, ref kivalasztott);
+                            break;
+                    }
+                    
+                }
+                
+                
+                /*
+                Ellszamolasegyszer = true;
+                if (Ellszamolasegyszer)
+                {
+                    Pontszamolas2(ref osszertek2, EllKartyakpalyan, ref Ellszamolasegyszer);
+                    label1.Text = osszertek2.ToString();
+                }
+                Ellszamolasegyszer = false;
+                */
+
+            }
+            
+            
+
+
+            //lap hívás/rakás ellenfél részéről
+
             Kmezolepteto = 0;
             Tmezolepteto = 0;
             Omezo1lepteto = 0;
@@ -5288,6 +5714,7 @@ namespace Kartya
             egyszer1 = true;
             Ellszamolasegyszer = true;
 
+            
             foreach (var k in Kartyakpalyan)
             {
                 switch (k)
@@ -5370,7 +5797,8 @@ namespace Kartya
                 }
             }
             //Ellenfél
-            if(osszertek2 > osszertek || osszertek2 == osszertek)
+
+            
             foreach (var k in EllKartyakpalyan)
             {
                 switch (k)
@@ -5451,6 +5879,12 @@ namespace Kartya
                         Elap25helye = EllTemetohelye;
                         break;
                 }
+                if (Ellszamolasegyszer)
+                {
+                    Pontszamolas2(ref osszertek2, EllKartyakpalyan, ref Ellszamolasegyszer);
+                    label1.Text = osszertek2.ToString();
+                }
+                Ellszamolasegyszer = false;
             }
 
             Kartyakpalyan.Clear();
@@ -5468,6 +5902,7 @@ namespace Kartya
                 label1.Text = osszertek2.ToString();
             }
             Ellszamolasegyszer = false;
+            label1.Text = "0";
             this.Refresh();
         }
     }
